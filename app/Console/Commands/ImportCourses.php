@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Console\ImportCommand;
+use App\TuChance\Models\Course;
+use App\TuChance\Models\Opportunity;
+
+class ImportCourses extends ImportCommand
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'tuchance:import:courses';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Import courses from old database';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this->importTable('courses', 'opportunities', [
+            'remote_key' => 'course_id',
+            'only'       => [
+                'id', 'name', 'slug', 'link', 'image', 'summary', 'description',
+                'authorized', 'user_id', 'created_at', 'updated_at',
+                'deleted_at',
+            ],
+            'map'        => [
+                'id'          => 'course_id',
+                'category_id' => 7,
+                'authorized'  => 'is_active',
+                'image'       => function ($row, $imported) {
+                    if ($value = $row->get('image')) {
+                        if (!$imported) {
+                            $model     = new Course;
+                            $model->id = $row->get('id');
+                        } else {
+                            $model     = new Opportunity;
+                            $model->id = $imported->id;
+                        }
+
+                        $asset = $this->importAsset($model, 'image', $value);
+                    }
+
+                    return false;
+                },
+            ],
+        ]);
+
+        $this->connection
+            ->statement(implode(' ', [
+                "update assets set assetable_type =",
+                "'App\\TuChance\\Models\\Opportunity', assetable_id = (select",
+                "opportunities.id from opportunities where",
+                "opportunities.course_id = assetable_id) where assetable_type",
+                "= 'App\\TuChance\\Models\\Course'",
+            ]));
+    }
+}

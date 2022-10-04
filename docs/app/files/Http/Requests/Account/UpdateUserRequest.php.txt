@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Http\Requests\Account;
+
+use App\Http\Requests\UploadsAttachments;
+use App\Http\Requests\ValidatesLocation;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Exists;
+use Illuminate\Validation\Rules\Unique;
+
+class UpdateUserRequest extends FormRequest
+{
+    use UploadsAttachments, ValidatesLocation;
+
+    /**
+     * Determine if the user is authorized to make this request.
+     * @return bool
+     */
+    public function authorize()
+    {
+        return auth()->check();
+    }
+
+    /**
+     * Get the user id to ignore
+     * @var int
+     */
+    protected function userId () {
+        return auth()->id();
+    }
+
+    /**
+     * Unique email rule definition
+     * @return \Illuminate\Validation\Rules\Unique
+     */
+    protected function uniqueEmailRule()
+    {
+        return with(new Unique('users', 'email'))->ignore($this->userId());
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     * @return array
+     */
+    public function rules()
+    {
+        $rules = [
+            'email'      => [
+                'required', 'string', $this->uniqueEmailRule(),
+            ],
+            'name'       => ['required', 'string'],
+            'password'   => ['string'],
+            'tag_ids'    => ['array'],
+            'tag_ids.*'  => ['required', 'numeric', 'exists:interests,id'],
+        ];
+
+        $this->validateLocation($rules);
+
+        return array_merge($rules, $this->cropImage('avatar'));
+    }
+
+}
+

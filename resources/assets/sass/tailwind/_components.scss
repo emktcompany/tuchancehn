@@ -1,0 +1,33 @@
+@import "../import/btn";
+@import "../import/form";
+
+.VueCarousel-navigation .VueCarousel-navigation-button {
+  @apply rounded-full flex items-center justify-center w-12 h-12 ;
+  color: white !important;
+  background-color: config('colors.teal') !important;
+  transition: background-color .15s ease;
+
+  &:hover {
+    @apply bg-cyan;
+  }
+
+  @screen xs {
+    @apply w-8 h-8 ;
+  }
+}
+
+.admin-box {
+  @apply my-6 bg-white shadow-md border-grey-lightest border ;
+}
+
+.admin-box-title {
+  @apply mb-4 p-4 border-b border-grey-lighter rounded-t ;
+}
+
+.admin-box-inner {
+  @apply p-1 ;
+
+  @screen md {
+    @apply p-4 ;
+  }
+}

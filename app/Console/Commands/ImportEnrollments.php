@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Console\ImportCommand;
+use App\TuChance\Models\Candidate;
+use App\TuChance\Models\Opportunity;
+
+class ImportEnrollments extends ImportCommand
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'tuchance:import:enrollments';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Import enrollments from old database';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this->importTable(function () {
+            return $this->import_connection
+                ->table('candidate_opportunities')
+                ->whereIn('opportunity_id', Opportunity::withTrashed()->pluck('id')->toArray())
+                ->whereIn('candidate_id', Candidate::withTrashed()->pluck('id')->toArray())
+                ->orderBy('candidate_opportunities.id');
+        }, 'enrollments', [
+            'map' => [
+                'status'  => 'is_accepted'
+            ],
+        ]);
+    }
+}

@@ -1,0 +1,130 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Stats;
+
+use Carbon\Carbon;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
+class OpportunitiesController extends BaseController
+{
+    /**
+     * Dashboard
+     * @param  \Illuminate\Http\Request       $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Request $request)
+    {
+        $datasets = collect([
+            'created' => 'report_opportunities',
+            'expired' => 'report_opportunities_expired',
+            'started' => 'report_opportunities_started',
+            'active'  => null,
+        ])
+            ->map(function ($table) {
+                if (!$table) {
+                    return null;
+                }
+
+                $query = $this->countQuery(
+                    $table,
+                    ['period'],
+                    ['period'],
+                    'period'
+                );
+
+                $this->filterQuery($query);
+
+                return $query->get();
+            });
+
+        $begin = $this->earliestDateInCollection($datasets->first());
+        $steps = $this->steps($begin);
+
+        $labels = $steps->keys();
+
+        $datasets = $datasets->map(function ($data) use ($steps) {
+            return $steps->map(function ($step, $label) use ($data) {
+                if (!$data && $step) {
+                    $query = $this
+                        ->activeOpportunities($step['begin'], $step['end']);
+                    $this->filterQuery($query);
+                    return $query->get()->sum('total');
+                }
+
+                if ($step) {
+                    return $data->filter(function ($row) use ($step) {
+                        $time = strtotime($row->period);
+                        $then = Carbon::createFromTimestamp($time);
+                        return $then->between($step['begin'], $step['end']);
+                    })->sum('count');
+                }
+
+                return $data ? $data->where('period', null)->sum('count') : 0;
+            })->values();
+        });
+
+        return new JsonResponse(compact('datasets', 'labels'));
+    }
+
+    /**
+     * Compose a query to count Opportunities active in given time period
+     * @param  \Carbon\Carbon $start
+     * @param  \Carbon\Carbon $end
+     * @return \Illuminate\Support\Collection
+     */
+    protected function activeOpportunities(Carbon $start, Carbon $end)
+    {
+        return $this->db->query()->fromSub(function ($query) use ($start, $end) {
+            $query->from('opportunities')
+                ->whereNull('opportunities.deleted_at')
+                ->whereNull('bidders.deleted_at')
+                ->whereNull('categories.deleted_at')
+                ->where('begin_at', '<=', $end)
+                ->where('finish_at', '>=', $start)
+                ->join('bidders', 'bidders.id', '=', 'bidder_id')
+                ->join('categories', 'categories.id', '=', 'opportunities.category_id')
+                ->leftJoin('countries', 'countries.id', '=', 'opportunities.country_id')
+                ->leftJoin('states', 'states.id', '=', 'opportunities.state_id')
+                ->leftJoin('cities', 'cities.id', '=', 'opportunities.city_id')
+                ->selectRaw('count(opportunities.id) as total')
+                ->addSelect('bidders.name as bidder', 'bidder_id')
+                ->addSelect('categories.name as category', 'opportunities.category_id')
+                ->addSelect('countries.name as country', 'opportunities.country_id')
+                ->addSelect('states.name as state', 'opportunities.state_id')
+                ->addSelect('cities.name as city', 'opportunities.city_id')
+                ->groupBy('opportunities.country_id')
+                ->groupBy('opportunities.state_id')
+                ->groupBy('opportunities.city_id')
+                ->groupBy('bidder_id')
+                ->groupBy('category_id')
+                ->groupBy('opportunities.is_active');
+        }, 'c');
+    }
+
+    /**
+     * Apply common filters to a given query
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function filterQuery(Builder $query)
+    {
+        if (
+            $this->request->has('category_id') &&
+            $category_id = $this->request->get('category_id')
+        ) {
+            $query->where('opportunities.category_id', $category_id);
+        }
+
+        if (
+            $this->request->has('bidder_id') &&
+            $bidder_id = $this->request->get('bidder_id')
+        ) {
+            $query->where('bidder_id', $bidder_id);
+        }
+
+        parent::filterQuery($query);
+        return $query;
+    }
+}

@@ -1,0 +1,95 @@
+<?php
+
+namespace App\Http\Controllers\Users;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchOpportunitiesRequest;
+use App\Http\Resources\EnrollmentResource;
+use App\Http\Resources\OpportunityResource;
+use App\TuChance\Contracts\Repositories\Opportunities;
+use App\Events\EnrollmentCreated;
+use Illuminate\Contracts\Auth\Factory;
+
+class OpportunitiesController extends Controller
+{
+    /**
+     * Opportunity model
+     * @var \App\TuChance\Contracts\Repositories\Opportunities
+     */
+    protected $opportunities;
+
+    /**
+     * Auth factory
+     * @var \Illuminate\Contracts\Auth\Factory
+     */
+    protected $auth;
+
+    /**
+     * Create a new controller instance
+     * @param  \App\TuChance\Contracts\Repositories\Opportunities $opportunities
+     * @param  \Illuminate\Contracts\Auth\Factory                 $auth
+     * @return void
+     */
+    public function __construct(Opportunities $opportunities, Factory $auth)
+    {
+        $this->opportunities = $opportunities;
+        $this->auth          = $auth;
+    }
+
+    /**
+     * Search opportunities
+     * @param  \App\Http\Requests\SearchOpportunitiesRequest $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function index(SearchOpportunitiesRequest $request)
+    {
+        return $this->opportunities->search($request);
+    }
+
+    /**
+     * Show opportunity
+     * @param  int $id
+     * @return \App\Http\Resources\OpportunityResource
+     */
+    public function show($id)
+    {
+        return $this->opportunities->find($id);
+    }
+
+    /**
+     * Search opportunities
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function enrolled()
+    {
+        $user      = $this->auth->user();
+        $candidate = $user->candidate;
+
+        return $this->opportunities->enrolled($candidate->id);
+    }
+
+    /**
+     * Enroll to given Opportunity
+     * @param  int                                 $id
+     * @param  \Illuminate\Contracts\Auth\Factory  $auth
+     * @return \App\Http\Resources\EnrollmentResource
+     */
+    public function enroll($id)
+    {
+        $user        = $this->auth->user();
+        $candidate   = $user->candidate;
+        $opportunity = $this->opportunities->find($id);
+
+        $enrollment = $candidate->enrollments()->firstOrCreate([
+            'opportunity_id' => $opportunity->id,
+        ]);
+
+        if ($enrollment->wasRecentlyCreated) {
+            event(new EnrollmentCreated($enrollment));
+        }
+
+        return new EnrollmentResource($enrollment->fresh(
+            'opportunity.bidder', 'opportunity.country', 'opportunity.state', 'opportunity.city', 'opportunity.bidder.user.avatar', 'candidate.user'
+        ));
+    }
+}

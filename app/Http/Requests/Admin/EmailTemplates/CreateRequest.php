@@ -1,0 +1,8 @@
+<?php
+
+namespace App\Http\Requests\Admin\EmailTemplates;
+
+class CreateRequest extends UpdateRequest
+{
+
+}

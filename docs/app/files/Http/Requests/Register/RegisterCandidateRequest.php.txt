@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Requests\Register;
+
+use App\Http\Requests\Account\UpdateCandidateRequest;
+
+class RegisterCandidateRequest extends UpdateCandidateRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return !auth()->check();
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $rules = parent::rules();
+
+        $rules['password'][] = 'required';
+
+        return array_merge_recursive($rules, [
+            'network'                    => [
+                'required_with:access_token', 'in:facebook,google',
+            ],
+            'access_token'               => ['required_with:network'],
+            'candidate'                  => ['required', 'array'],
+            'candidate.gender'           => ['required', 'boolean'],
+            'candidate.driver_license'   => ['boolean'],
+            'candidate.years_experience' => ['numeric'],
+            'candidate.birth'            => ['required', 'date'],
+            'candidate.privacy'          => ['boolean'],
+            'candidate.subscription'     => ['boolean'],
+        ]);
+    }
+}
+

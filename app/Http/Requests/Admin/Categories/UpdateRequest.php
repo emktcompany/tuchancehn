@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Requests\Admin\Categories;
+
+use App\Http\Requests\UploadsAttachments;
+use Illuminate\Foundation\Http\FormRequest;
+
+class UpdateRequest extends FormRequest
+{
+    use UploadsAttachments;
+
+    /**
+     * Determine if the user is authorized to make this request.
+     * @return bool
+     */
+    public function authorize()
+    {
+        return auth()->check() && auth()->user()->hasAnyRole([
+            'admin',
+        ]);
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     * @return array
+     */
+    public function rules()
+    {
+        $rules = [
+            'name'             => ['required', 'string'],
+            'color'            => ['required', 'in:blue,teal,orange,purple,red,cyan'],
+            'link'             => ['string', 'url', 'nullable'],
+            'image_attachment' => ['file'],
+        ];
+
+        return array_merge(
+            $rules,
+            $this->cropImage('banner'),
+            $this->cropImage('opportunity')
+        );
+    }
+}

@@ -1,0 +1,255 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Bidders\CreateRequest;
+use App\Http\Requests\Admin\Bidders\UpdateRequest;
+use App\Http\Resources\BidderResource;
+use App\TuChance\Models\Bidder;
+use App\TuChance\Models\User;
+use App\TuChance\Contracts\Repositories\Bidders;
+use App\Exports\BaseExport;
+use App\Events\BidderAccepted;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+
+class BiddersController extends Controller
+{
+    /**
+     * Bidder model
+     * @var \App\TuChance\Models\Bidder
+     */
+    protected $bidders;
+
+    /**
+     * User model
+     * @var \App\TuChance\Models\User
+     */
+    protected $users;
+
+    /**
+     * Relations to load for a given resource
+     * @var array
+     */
+    protected $relations = [
+        'user.avatar', 'country', 'state', 'city', 'image',
+    ];
+
+    /**
+     * Create a new controller instance
+     * @param  \App\TuChance\Models\Bidder $bidders
+     * @param  \App\TuChance\Models\User      $users
+     * @return void
+     */
+    public function __construct(Bidder $bidders, User $users)
+    {
+        $this->bidders = $bidders;
+        $this->users   = $users;
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @param  \Illuminate\Http\Request                      $request
+     * @param  \App\TuChance\Contracts\Repositories\Bidders  $bidders
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function index(Request $request, Bidders $bidders)
+    {
+        $active = $request->has('active') ?
+            (bool) $request->get('active') :
+            null;
+
+        return $bidders->search($request, $active, 10);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * @param  \App\Http\Requests\Admin\Bidders\CreateRequest  $request
+     * @return \App\Http\Resources\BidderResource
+     */
+    public function store(CreateRequest $request)
+    {
+        $db = $this->users->getConnection();
+        $db->beginTransaction();
+
+        try {
+            $user             = $this->users->newInstance();
+            $user->fill($data = $request->get('user', []));
+            $user->password   = bcrypt($request->get('password'));
+            $user->save();
+            $user->syncRoles(['bidder']);
+
+            $bidder = $this->bidders->newInstance();
+
+            if ($request->has('is_featured')) {
+                $bidder->is_featured = !!$request->get('is_featured', 0);
+            }
+
+            if ($request->has('is_active')) {
+                $bidder->is_active = !!$request->get('is_active', 0);
+            }
+
+            $bidder->fill(array_merge(
+                $request->except('user'),
+                array_only($user->getAttributes(), [
+                    'country_id', 'state_id', 'city_id',
+                ])
+            ));
+            $bidder->user()->associate($user);
+            $bidder->save();
+
+            $avatar = $this->cropImage($user, 'avatar', $request);
+        } catch (\Exception $e) {
+            $db->rollback();
+
+            return new JsonResponse([
+                'error' => $e->getMessage(),
+                'type' => get_class($e)
+            ], 422);
+        }
+
+        $db->commit();
+
+        return new BidderResource($bidder->fresh($this->relations));
+    }
+
+    /**
+     * Display the specified resource.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int                       $id
+     * @return \App\Http\Resources\BidderResource
+     */
+    public function show(Request $request, $id)
+    {
+        $bidder = $this->bidders->with($this->relations)->findOrFail($id);
+        return new BidderResource($bidder);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     * @param  \App\Http\Requests\Admin\Bidders\UpdateRequest  $request
+     * @param  int                                             $id
+     * @return \App\Http\Resources\BidderResource
+     */
+    public function update(UpdateRequest $request, $id)
+    {
+        $db = $this->users->getConnection();
+        $db->beginTransaction();
+
+        try {
+            $bidder = $this->bidders->with($this->relations)->findOrFail($id);
+            $user   = $bidder->user;
+            $user->fill($data = $request->get('user', []));
+
+            if ($request->has('password')) {
+                $user->password = bcrypt($request->get('password'));
+            }
+
+            $user->save();
+
+            $bidder->fill(array_merge(
+                $request->except('user'),
+                array_only($user->getAttributes(), [
+                    'country_id', 'state_id', 'city_id',
+                ])
+            ));
+
+            if ($request->has('is_featured')) {
+                $bidder->is_featured = !!$request->get('is_featured', 0);
+            }
+
+            if ($request->has('is_active')) {
+                $bidder->is_active = !!$request->get('is_active', 0);
+            }
+
+            $bidder->save();
+
+            $avatar = $this->cropImage($user, 'avatar', $request);
+        } catch (\Exception $e) {
+            $db->rollback();
+
+            return new JsonResponse([
+                'error' => $e->getMessage(),
+                'type' => get_class($e)
+            ], 422);
+        }
+
+        $db->commit();
+
+        $this->cropImage($user, 'avatar', $request);
+
+        return new BidderResource($bidder->fresh($this->relations));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int                       $id
+     * @return \App\Http\Resources\BidderResource
+     */
+    public function destroy(Request $request, $id)
+    {
+        $bidder = $this->bidders->with($this->relations)->findOrFail($id);
+        $user   = $bidder->user;
+
+        $bidder->delete();
+        $user->delete();
+
+        return new BidderResource($bidder);
+    }
+
+    /**
+     * Toggle resource visibility
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
+     * @return \App\Http\Resources\BidderResource
+     */
+    public function toggle(Request $request, $id)
+    {
+        $bidder = $this->bidders->findOrFail($id);
+        $user   = $bidder->user;
+
+        $bidder->is_active = $user->is_active    = !$bidder->is_active;
+        $user->timestamps  = $bidder->timestamps = false;
+
+        if ($bidder->is_active) {
+            event(new BidderAccepted($bidder));
+        }
+
+        $bidder->save();
+        $user->save();
+
+        return new BidderResource($bidder->fresh($this->relations));
+    }
+
+    /**
+     * Export all resources to excel
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function download(Request $request)
+    {
+        $user  = $request->user();
+        $query = $this->bidders->newQuery();
+
+        if ($begin_at = $request->get('from')) {
+            $query->where('bidders.created_at', '>=', $begin_at);
+        }
+
+        if ($finish_at = $request->get('to')) {
+            $query->where('bidders.created_at', '<=', $finish_at);
+        }
+
+        $bidders = $query->get();
+
+        $rows = $bidders->load('country', 'state', 'city', 'user')
+            ->toArray();
+
+        return app('excel')->download(
+            new BaseExport($rows, 'exports.bidders'),
+            'Oferentes_' . date('Y-m-d H:i:s') . '.xlsx'
+        );
+    }
+}
+

@@ -1,0 +1,359 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Stats;
+
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Database\Connection;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+
+abstract class BaseController extends Controller
+{
+    /**
+     * Database connection
+     * @var \Illuminate\Database\Connection
+     */
+    protected $db;
+
+    /**
+     * @var \Illuminate\Http\Request
+     */
+    protected $request;
+
+    /**
+     * Allowed columns for group by
+     * @var array
+     */
+    protected $allowed_groups = ['period', 'state'];
+
+    /**
+     * New controller instance
+     * @param \Illuminate\Database\Connection $db
+     * @param \Illuminate\Http\Request        $request
+     */
+    public function __construct(Connection $db, Request $request)
+    {
+        $this->db      = $db;
+        $this->request = $request;
+    }
+
+    /**
+     * Apply common filters to a given query
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function filterQuery(Builder $query)
+    {
+        $this->filterQueryByLocation($query);
+
+        return $query;
+    }
+
+    /**
+     * Apply location filters to a given query
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function filterQueryByLocation(Builder $query)
+    {
+        if ($this->request->has('country_id')) {
+            $query->where('country_id', $this->request->get('country_id'));
+        }
+
+        if ($this->request->has('state_id')) {
+            $query->where('state_id', $this->request->get('state_id'));
+        }
+
+        if ($this->request->has('city_id')) {
+            $query->where('city_id', $this->request->get('city_id'));
+        }
+
+        return $query;
+    }
+
+    /**
+     * Parse since date
+     * @param  \Carbon\Carbon|null  $default
+     * @return \Carbon\Carbon|null
+     */
+    protected function parseSinceDate(Carbon $default = null)
+    {
+        if (
+            $this->request->has('since') &&
+            $then = strtotime($this->request->get('since'))
+        ) {
+            $since = Carbon::createFromTimestamp($then);
+            return $since->startOfDay();
+        }
+
+        return $default;
+    }
+
+    /**
+     * Parse until date
+     * @param  \Carbon\Carbon|null  $default
+     * @return \Carbon\Carbon|null
+     */
+    protected function parseUntilDate(Carbon $default = null)
+    {
+        if (
+            $this->request->has('until') &&
+            $then = strtotime($this->request->get('until'))
+        ) {
+            $until = Carbon::createFromTimestamp($then);
+            return $until->endOfDay();
+        }
+
+        return $default;
+    }
+
+    /**
+     * Get dimension from request
+     * @return string
+     */
+    public function parseDimension()
+    {
+        if (
+            $this->request->has('dimension') &&
+            ($dimension = $this->request->get('dimension')) &&
+            in_array($dimension, ['day', 'month', 'year'])
+        ) {
+            return $dimension;
+        }
+
+        return 'day';
+    }
+
+    /**
+     * Get group by from request
+     * @return string
+     */
+    public function parseGroupBy()
+    {
+        if (
+            $this->request->has('group') &&
+            ($group = $this->request->get('group')) &&
+            in_array($group, $this->allowed_groups)
+        ) {
+            return $group;
+        }
+
+        return 'period';
+    }
+
+    /**
+     * Get steps in time period
+     * @param  \Carbon\Carbon|null $since
+     * @return \Illuminate\Support\Collection
+     */
+    public function steps(Carbon $since = null)
+    {
+        $start     = $this->parseSinceDate($since);
+        $end       = $this->parseUntilDate(Carbon::now());
+        $dimension = $this->parseDimension();
+
+        if (!$start) {
+            $start     = $end->copy();
+            $dimension = 'year';
+        }
+
+        $steps = collect();
+        $diff  = $this->stepCount($dimension, $start, $end);
+
+        $steps->put('Sin Especificar', null);
+
+        for ($i = 0; $i <= $diff; $i++) {
+            $step = $this->makeStep($i, $dimension, $start);
+            $steps->put("{$step['label']}", [
+                'begin' => $step['begin'],
+                'end'   => $step['end'],
+            ]);
+        }
+
+        return $steps;
+    }
+
+    /**
+     * Make step according to given dimension
+     * @param  integer         $step
+     * @param  string          $dimension
+     * @param  \Carbon\Carbon  $start
+     * @return array
+     */
+    public function makeStep($step, $dimension, Carbon $start)
+    {
+        $begin = $start->copy();
+
+        switch ($dimension) {
+            case 'year':
+                $begin->addYears($step)->startOfYear();
+                $end   = $begin->copy()->endOfYear();
+                $label = $begin->year;
+                break;
+            case 'month':
+                $begin->addMonths($step)->startOfMonth();
+                $end   = $begin->copy()->endOfMonth();
+                $label = $begin->format('Y-m');
+                break;
+            default:
+                $begin->addDays($step)->startOfDay();
+                $end   = $begin->copy()->endOfDay();
+                $label = $begin->format('Y-m-d');
+        }
+
+        return compact('begin', 'end', 'label');
+    }
+
+    /**
+     * Get step count between two given dates according to given dimension
+     * @param  string         $dimension
+     * @param  \Carbon\Carbon $start
+     * @param  \Carbon\Carbon $end
+     * @return integer
+     */
+    public function stepCount($dimension, Carbon $start, Carbon $end)
+    {
+        switch ($dimension) {
+            case 'year':
+                return $end->diffInYears($start);
+                break;
+            case 'month':
+                return $end->diffInMonths($start);
+                break;
+        }
+
+        return $end->diffInDays($start);
+    }
+
+    /**
+     * Base range query
+     * @param  string $table
+     * @param  \Illuminate\Http\Request            $start
+     * @return \Illuminate\Database\Query\Builder
+     */
+    protected function rangeQuery($table)
+    {
+        $query = $this->db->table($table);
+
+        if ($start = $this->parseSinceDate()) {
+            $query->where('period', '>=', $start->format('Y-m-d'));
+        }
+
+        if ($end = $this->parseUntilDate()) {
+            $query->where('period', '<=', $end->format('Y-m-d'));
+        }
+
+        return $query;
+    }
+
+    /**
+     * Count from report table
+     * @param   \Illuminate\Database\Query\Builder|string $table
+     * @param  array                                      $columns
+     * @param  array                                      $groups
+     * @param  string                                     $order
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function countQuery(
+        $table,
+        array $columns = [],
+        array $groups = [],
+        $order = 'count'
+    ) {
+        if (!($table instanceof Builder)) {
+            $query = $this->rangeQuery($table);
+        } else {
+            $query = $table;
+        }
+
+        $query->orderBy($order, 'desc');
+
+        if (!empty($groups)) {
+            foreach ($groups as $group) {
+                $query->groupBy($group);
+            }
+
+            $query->selectRaw('sum(total) as count');
+        } else {
+            $query->selectRaw('total as count');
+        }
+
+        $columns = array_merge($columns, $groups);
+
+        if (!empty($columns)) {
+            foreach ($columns as $column) {
+                $query->addSelect($column);
+            }
+        }
+
+        return $query;
+    }
+
+    /**
+     * Count from report table
+     * @param   \Illuminate\Database\Query\Builder|string $table
+     * @param  array                                      $columns
+     * @param  array                                      $groups
+     * @param  string                                     $order
+     * @param  integer                                    $rows
+     * @return \Illuminate\Support\Collection
+     */
+    public function count(
+        $table,
+        array $columns = [],
+        array $groups = [],
+        $order = 'count',
+        $rows = 0
+    ) {
+        $query = $this->countQuery($table, $columns, $groups, $order);
+
+        if ($rows) {
+            $query->take($rows);
+        }
+
+        return $query->get();
+    }
+
+    /**
+     * Determine if collection contains unspecified period
+     * @param  \Illuminate\Support\Collection $collection
+     * @return boolean
+     */
+    public function hasEmptyPeriod(Collection $collection)
+    {
+        return $collection->pluck('period')->containsStrict(null);
+    }
+
+    /**
+     * Get earliest timestamp in collection
+     * @param  \Illuminate\Support\Collection $collection
+     * @return \Carbon\Carbon|null
+     */
+    public function earliestDateInCollection(Collection $collection)
+    {
+        $then = $collection->whereNotInStrict('period', [null])
+            ->sortBy(function ($period) {
+                return $this->periodToDate($period->period);
+            })
+            ->pluck('period')
+            ->first();
+        return $then ? $this->periodToDate($then) : null;
+    }
+
+    /**
+     * Convert date string to unix timestamp
+     * @param  string $period
+     * @return \Carbon\Carbon|null
+     */
+    public function periodToDate($period)
+    {
+        if ($time = strtotime($period)) {
+            return Carbon::createFromTimestamp($time);
+        }
+
+        return null;
+    }
+
+}

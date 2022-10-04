@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Console\ImportCommand;
+use App\TuChance\Models\Bidder;
+use App\TuChance\Models\Opportunity;
+use App\TuChance\Models\User;
+
+class ImportOpportunities extends ImportCommand
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'tuchance:import:opportunities';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Import opportunities from old database';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this->importTable(function () {
+            return $this->import_connection
+                ->table('opportunities')
+                ->whereIn('bidder_id', Bidder::withTrashed()->pluck('id')->toArray())
+                ->orderBy('opportunities.id');
+        }, 'opportunities', [
+            'map' => [
+                'status' => 'is_active',
+                'image'  => function ($row) {
+                    if ($value = $row->get('image')) {
+                        $model = new Opportunity;
+                        $model->id = $row->get('id');
+
+                        $asset = $this->importAsset($model, 'image', $value);
+                    }
+
+                    return false;
+                },
+                'finish_at' => function ($row) {
+                    $value = $row->get('finish_at');
+
+                    if (starts_with($value, '0000')) {
+                        return NULL;
+                    }
+
+                    return $value;
+                }
+            ],
+        ]);
+    }
+}

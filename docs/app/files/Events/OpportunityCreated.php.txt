@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Events;
+
+use App\TuChance\Models\Opportunity;
+use Illuminate\Queue\SerializesModels;
+
+class OpportunityCreated
+{
+    use SerializesModels;
+
+    /**
+     * Opportunity created
+     * @var \App\TuChance\Models\Opportunity
+     */
+    protected $opportunity;
+
+    /**
+     * Create a new event instance.
+     * @param  \App\TuChance\Models\Opportunity $opportunity
+     * @return void
+     */
+    public function __construct(Opportunity $opportunity)
+    {
+        $this->opportunity = $opportunity;
+    }
+
+    /**
+     * Get the opportunity
+     * @return \App\TuChance\Models\Opportunity
+     */
+    public function getOpportunity()
+    {
+        return $this->opportunity;
+    }
+}
+

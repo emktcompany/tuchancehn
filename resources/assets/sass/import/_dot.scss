@@ -1,0 +1,11 @@
+.dot {
+  border-radius: 9999px;
+  width: 40px;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 0;
+    padding-bottom: 100%;
+  }
+}

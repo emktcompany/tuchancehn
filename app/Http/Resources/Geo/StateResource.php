@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Resources\Geo;
+
+use App\Http\Resources\BaseResource;
+
+class StateResource extends BaseResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+            'id'     => $this->id,
+            'name'   => $this->name,
+            'cities' => CityResource::collection($this->whenLoaded('cities')),
+        ];
+    }
+}

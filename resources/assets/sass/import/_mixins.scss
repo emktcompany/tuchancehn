@@ -1,0 +1,11 @@
+@mixin zoomIn($prefix: '') {
+  0% {
+    #{$prefix}transform: scale3d(0, 0, 0);
+  }
+}
+
+@mixin zoomOut($prefix: '') {
+  100% {
+    #{$prefix}transform: scale3d(0, 0, 0);
+  }
+}

@@ -1,0 +1,104 @@
+<?php
+
+namespace App\Notifications;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
+use Illuminate\Queue\SerializesModels;
+
+abstract class BaseNotification extends Notification
+{
+    use Queueable, SerializesModels;
+
+    /**
+     * The folder the messages for this notifications are stored
+     * @var string
+     */
+    protected $translations;
+
+    /**
+     * Url for action button
+     * @param  mixed $notifiable
+     * @return string
+     */
+    public function url($notifiable)
+    {
+        return url('/');
+    }
+
+    /**
+     * Get the notification's delivery channels.
+     * @param  mixed $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+    {
+        return ['mail'];
+    }
+
+    /**
+     * Replace data for translations
+     * @return array
+     */
+    public function replace($notifiable)
+    {
+        return [];
+    }
+
+    /**
+     * Translate line
+     * @param  string $line
+     * @return string|null
+     */
+    public function getLine($line, $notifiable)
+    {
+        $key  = "notifications/{$this->translations}.{$line}";
+        $line = __($key, $this->replace($notifiable));
+        return $line == $key ? null : $line;
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     * @param  mixed  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        $message = new MailMessage;
+
+        if ($line = $this->getLine('name', $notifiable)) {
+            $message->subject($line);
+        }
+
+        if ($line = $this->getLine('head', $notifiable)) {
+            $message->greeting($line);
+        }
+
+        if ($line = $this->getLine('text', $notifiable)) {
+            $message->line($line);
+        }
+
+        if ($line = $this->getLine('data', $notifiable)) {
+            $message->line($line);
+        }
+
+        if (method_exists($this, 'toMailData')) {
+            $this->toMailData($message, $notifiable);
+        }
+
+        if (
+            ($action = $this->getLine('action', $notifiable)) &&
+            $url = $this->url($notifiable)
+        ) {
+            $message->action($action, $url);
+        }
+
+        if ($line = $this->getLine('outro', $notifiable)) {
+            $message->line($line);
+        }
+
+        return $message;
+    }
+}
+

@@ -1,0 +1,93 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Carbon\Carbon;
+
+class OpportunityResource extends BaseResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        $now         = Carbon::now();
+        $begin_at    = $this->getAttribute('begin_at');
+        $finish_at   = $this->getAttribute('finish_at');
+        $is_upcoming = $begin_at ? $now->lt($begin_at) : false;
+        $is_expired  = $finish_at ? $now->gt($finish_at) : false;
+
+        return [
+            'id'              => $this->id,
+            'name'            => $this->name,
+            'slug'            => $this->slug,
+            'summary'         => strip_tags($this->summary),
+            'description'     => $this->description,
+            'requirements'    => $this->requirements,
+            'characteristics' => $this->characteristics,
+            'country_id'      => $this->country_id,
+            'state_id'        => $this->state_id,
+            'city_id'         => $this->city_id,
+            'bidder_id'       => $this->bidder_id,
+            'category_id'     => $this->category_id,
+            'subcategory_id'  => $this->subcategory_id,
+            'is_active'       => $this->is_active,
+            'is_valid'        => !$is_upcoming && !$is_expired,
+            'is_expired'      => $is_expired,
+            'is_upcoming'     => $is_upcoming,
+            'link'            => $this->link,
+            'allow_apply'     => $this->allow_apply,
+            $this->mergeWhen($this->resource->relationLoaded('skills'), [
+                'skill_ids' => $this->skills->pluck('id'),
+                'skills'    => SkillResource::collection($this->skills),
+            ]),
+            'is_accepted'     => $this->when(!is_null($this->is_accepted), $this->is_accepted),
+            'has_enrolled'    => $this->when(auth()->check(), function () {
+                $user = auth()->user();
+
+                if (
+                    $user->hasRole('candidate') &&
+                    $candidate = $user->candidate
+                ) {
+                    return $candidate->enrollments
+                        ->pluck('opportunity_id')
+                        ->contains($this->id);
+                }
+
+                return false;
+            }),
+            'enrollment'      => $this->when(auth()->check(), function () {
+                $user = auth()->user();
+
+                if (
+                    $user->hasRole('candidate') &&
+                    $candidate = $user->candidate
+                ) {
+                    return $candidate->enrollments
+                        ->where('opportunity_id', $this->id)
+                        ->first();
+                }
+
+                return false;
+            }),
+            'begin_at'        => $this->asDate('begin_at'),
+            'finish_at'       => $this->asDate('finish_at'),
+            'created_at'      => $this->asDate('created_at'),
+            'image'           => new AssetResource($this->whenLoaded('image')),
+            'bidder'          => new BidderResource($this->whenLoaded('bidder')),
+            'category'        => new CategoryResource($this->whenLoaded('category')),
+            'country'         => new CountryResource($this->whenLoaded('country')),
+            'city'            => new CityResource($this->whenLoaded('city')),
+            'state'           => new StateResource($this->whenLoaded('state')),
+            $this->mergeWhen($this->resource->relationLoaded('tags'), [
+                'tag_ids' => $this->tags->pluck('id'),
+                'tags'    => InterestResource::collection(
+                    $this->whenLoaded('tags')
+                ),
+            ]),
+        ];
+    }
+}

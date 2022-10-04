@@ -1,0 +1,13 @@
+@import "import/variables";
+
+@import "~sass-mixins/mixins";
+
+@import "import/mixins";
+
+@tailwind preflight;
+@tailwind components;
+
+@import "import/dot";
+@import "import/inner";
+
+@tailwind utilities;

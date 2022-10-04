@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+
+class ImportAll extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'tuchance:import:all';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Command description';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this->info('Importing Users');
+        $this->call('tuchance:import:users');
+        $this->call('tuchance:import:users');
+
+        $this->info('Importing Bidders');
+        $this->call('tuchance:import:bidders');
+
+        $this->info('Importing Candidates');
+        $this->call('tuchance:import:candidates');
+
+        $this->info('Importing Opportunities');
+        $this->call('tuchance:import:opportunities');
+
+        $this->info('Importing Courses');
+        $this->call('tuchance:import:courses');
+
+        $this->info('Importing Enrollments');
+        $this->call('tuchance:import:enrollments');
+
+        $this->call('tuchance:fix:counters');
+        $this->call('tuchance:fix:candidates');
+    }
+}
+

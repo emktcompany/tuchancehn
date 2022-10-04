@@ -1,0 +1,111 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Partners\CreateRequest;
+use App\Http\Requests\Admin\Partners\UpdateRequest;
+use App\Http\Resources\PartnerResource;
+use App\TuChance\Models\Partner;
+use Illuminate\Http\Request;
+
+class PartnersController extends Controller
+{
+    /**
+     * Partner model
+     * @var \App\TuChance\Models\Partner
+     */
+    protected $partners;
+
+    /**
+     * Relations to load for a given resource
+     * @var array
+     */
+    protected $relations = [
+        'image',
+    ];
+
+    /**
+     * Create a new controller instance
+     * @param  \App\TuChance\Models\Partner $partners
+     * @return void
+     */
+    public function __construct(Partner $partners)
+    {
+        $this->partners = $partners;
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function index(Request $request)
+    {
+        $partners = $this->partners
+            ->with($this->relations)
+            ->latest()
+            ->paginate(12);
+
+        return PartnerResource::collection($partners);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * @param  \App\Http\Requests\Admin\Partners\CreateRequest  $request
+     * @return \App\Http\Resources\PartnerResource
+     */
+    public function store(CreateRequest $request)
+    {
+        $partner = $this->partners->newInstance();
+        $partner->fill($request->all());
+        $partner->save();
+
+        $this->cropImage($partner, 'image', $request);
+
+        return new PartnerResource($partner->fresh($this->relations));
+    }
+
+    /**
+     * Display the specified resource.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int                       $id
+     * @return \App\Http\Resources\PartnerResource
+     */
+    public function show(Request $request, $id)
+    {
+        $partner = $this->partners->with($this->relations)->findOrFail($id);
+        return new PartnerResource($partner);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     * @param  \App\Http\Requests\Admin\Partners\UpdateRequest  $request
+     * @param  int                                             $id
+     * @return \App\Http\Resources\PartnerResource
+     */
+    public function update(UpdateRequest $request, $id)
+    {
+        $partner = $this->partners->with($this->relations)->findOrFail($id);
+        $partner->fill($request->all());
+        $partner->save();
+
+        $this->cropImage($partner, 'image', $request);
+
+        return new PartnerResource($partner->fresh($this->relations));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int                       $id
+     * @return \App\Http\Resources\PartnerResource
+     */
+    public function destroy(Request $request, $id)
+    {
+        $partner = $this->partners->with($this->relations)->findOrFail($id);
+        $partner->delete();
+        return new PartnerResource($partner);
+    }
+}
+

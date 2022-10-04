@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Stats;
+
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+
+class EnrollmentsController extends BaseController
+{
+    /**
+     * Dashboard
+     * @param  \Illuminate\Http\Request       $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Request $request)
+    {
+        $datasets = collect([
+            'enrollments' => 'report_enrollments',
+            // 'active'  => null
+        ])
+            ->map(function ($table) {
+                if (!$table) {
+                    return null;
+                }
+
+                $query = $this->countQuery(
+                    $table,
+                    ['period'],
+                    ['period'],
+                    'period'
+                );
+
+                $this->filterQuery($query);
+
+                return $query->get();
+            });
+
+        $begin = $this->earliestDateInCollection($datasets->first());
+        $steps = $this->steps($begin);
+
+        $labels = $steps->keys();
+
+        $datasets = $datasets->map(function ($data) use ($steps) {
+            return $steps->map(function ($step, $label) use ($data) {
+
+                if ($step) {
+                    return $data->filter(function ($row) use ($step) {
+                        $time = strtotime($row->period);
+                        $then = Carbon::createFromTimestamp($time);
+                        return $then->between($step['begin'], $step['end']);
+                    })->sum('count');
+                }
+
+                return $data ? $data->where('period', null)->sum('count') : 0;
+            })->values();
+        });
+
+
+        return new JsonResponse(compact('datasets', 'labels'));
+    }
+}
+

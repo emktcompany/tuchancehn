@@ -1,0 +1,81 @@
+.dot-enter-active, .dot-leave-active {
+  @include x-transition(transform .5s ease-in);
+}
+.dot-enter, .dot-leave-to {
+  @include x-transform(scale(0));
+}
+
+.slideDown-enter-active, .slideDown-leave-active {
+  @include x-transition(transform .15s ease-in);
+}
+.slideDown-enter, .slideDown-leave-to {
+  @include x-transform(translateY(-100%));
+}
+
+.slideFadeDown-enter-active, .slideFadeDown-leave-active {
+  @include x-transition(transform .15s ease-in, opacity .15s ease);
+}
+.slideFadeDown-enter, .slideFadeDown-leave-to {
+  opacity: 0;
+  @include x-transform(translateY(-20%));
+}
+
+.fade-enter-active, .fade-leave-active {
+  @include x-transition(opacity .15s ease);
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active, .modal-leave-active {
+  @include x-transition(transform .15s ease-in, opacity .15s ease);
+}
+.modal-enter, .modal-leave-to {
+  opacity: 0;
+  @include x-transform(scale(1.1));
+}
+
+.transition-all {
+  @include x-transition(all .25s ease);
+}
+
+.transition-duration-short {
+  -webkit-transition-duration: .25s;
+  transition-duration: .25s;
+}
+.transition-duration-longer {
+  -webkit-transition-duration: .75s;
+  transition-duration: .75s;
+}
+.transition-duration-longest {
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+.transition-delayed {
+  -webkit-transition-delay: .25s;
+  transition-delay: .25s;
+}
+
+@-webkit-keyframes zoomIn {
+  @include zoomIn('-webkit-');
+}
+
+@keyframes zoomIn {
+  @include zoomIn();
+}
+
+.zoomIn {
+  @include animate-prefixer(animation-name, 'zoomIn');
+}
+
+@-webkit-keyframes zoomOut {
+  @include zoomOut('-webkit-');
+}
+
+@keyframes zoomOut {
+  @include zoomOut();
+}
+
+.zoomOut {
+  @include animate-prefixer(animation-name, 'zoomOut');
+}

@@ -1,0 +1,8 @@
+.btn {
+  @apply outline-none px-12 py-3 uppercase no-underline inline-block ;
+  border-radius: 30px;
+
+  &:active, &:focus {
+    @apply outline-none ;
+  }
+}

@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\CandidateCreated;
+use App\Notifications\CandidateWelcome;
+use App\TuChance\Models\User;
+
+class SendCandidateRegistrationNotification
+{
+    /**
+     * Handle the event.
+     * @param  \App\Events\CandidateCreated  $event
+     * @return void
+     */
+    public function handle(CandidateCreated $event)
+    {
+        $candidate = $event->getCandidate();
+
+        if ($candidate->user) {
+            $candidate->user->notify(new CandidateWelcome);
+        }
+    }
+}

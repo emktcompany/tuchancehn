@@ -1,0 +1,357 @@
+[
+  {
+    "id": 1,
+    "name": "Ahuachapán",
+    "country_id": 2
+  },
+  {
+    "id": 2,
+    "name": "Cabañas",
+    "country_id": 2
+  },
+  {
+    "id": 3,
+    "name": "Chalatenango",
+    "country_id": 2
+  },
+  {
+    "id": 4,
+    "name": "Cuscatlán",
+    "country_id": 2
+  },
+  {
+    "id": 5,
+    "name": "La Libertad",
+    "country_id": 2
+  },
+  {
+    "id": 6,
+    "name": "La Paz",
+    "country_id": 2
+  },
+  {
+    "id": 7,
+    "name": "La Unión",
+    "country_id": 2
+  },
+  {
+    "id": 8,
+    "name": "Morazán",
+    "country_id": 2
+  },
+  {
+    "id": 9,
+    "name": "San Miguel",
+    "country_id": 2
+  },
+  {
+    "id": 10,
+    "name": "San Salvador",
+    "country_id": 2
+  },
+  {
+    "id": 11,
+    "name": "Santa Ana",
+    "country_id": 2
+  },
+  {
+    "id": 12,
+    "name": "San Vicente",
+    "country_id": 2
+  },
+  {
+    "id": 13,
+    "name": "Sonsonate",
+    "country_id": 2
+  },
+  {
+    "id": 14,
+    "name": "Usulután",
+    "country_id": 2
+  },
+  {
+    "id": 23,
+    "name": "Alta Verapaz",
+    "country_id": 3
+  },
+  {
+    "id": 24,
+    "name": "Baja Verapaz",
+    "country_id": 3
+  },
+  {
+    "id": 25,
+    "name": "Chimaltenango",
+    "country_id": 3
+  },
+  {
+    "id": 26,
+    "name": "Chiquimula",
+    "country_id": 3
+  },
+  {
+    "id": 27,
+    "name": "El Progreso",
+    "country_id": 3
+  },
+  {
+    "id": 28,
+    "name": "Escuintla",
+    "country_id": 3
+  },
+  {
+    "id": 29,
+    "name": "Guatemala",
+    "country_id": 3
+  },
+  {
+    "id": 30,
+    "name": "Huehuetenango",
+    "country_id": 3
+  },
+  {
+    "id": 31,
+    "name": "Izabal",
+    "country_id": 3
+  },
+  {
+    "id": 32,
+    "name": "Jalapa",
+    "country_id": 3
+  },
+  {
+    "id": 33,
+    "name": "Jutiapa",
+    "country_id": 3
+  },
+  {
+    "id": 34,
+    "name": "Peten",
+    "country_id": 3
+  },
+  {
+    "id": 35,
+    "name": "Quetzaltenango",
+    "country_id": 3
+  },
+  {
+    "id": 36,
+    "name": "Quiche",
+    "country_id": 3
+  },
+  {
+    "id": 37,
+    "name": "Retalhuleu",
+    "country_id": 3
+  },
+  {
+    "id": 38,
+    "name": "Sacatepequez",
+    "country_id": 3
+  },
+  {
+    "id": 39,
+    "name": "San Marcos",
+    "country_id": 3
+  },
+  {
+    "id": 40,
+    "name": "Santa Rosa",
+    "country_id": 3
+  },
+  {
+    "id": 41,
+    "name": "Solola",
+    "country_id": 3
+  },
+  {
+    "id": 42,
+    "name": "Suchitepequez",
+    "country_id": 3
+  },
+  {
+    "id": 43,
+    "name": "Totonicapan",
+    "country_id": 3
+  },
+  {
+    "id": 44,
+    "name": "Zacapa",
+    "country_id": 3
+  },
+  {
+    "id": 45,
+    "name": "Atlantida",
+    "country_id": 4
+  },
+  {
+    "id": 46,
+    "name": "Choluteca",
+    "country_id": 4
+  },
+  {
+    "id": 47,
+    "name": "Colon",
+    "country_id": 4
+  },
+  {
+    "id": 48,
+    "name": "Comayagua",
+    "country_id": 4
+  },
+  {
+    "id": 49,
+    "name": "Copan",
+    "country_id": 4
+  },
+  {
+    "id": 50,
+    "name": "Cortes",
+    "country_id": 4
+  },
+  {
+    "id": 51,
+    "name": "El Paraiso",
+    "country_id": 4
+  },
+  {
+    "id": 52,
+    "name": "Francisco Morazan",
+    "country_id": 4
+  },
+  {
+    "id": 53,
+    "name": "Gracias a Dios",
+    "country_id": 4
+  },
+  {
+    "id": 54,
+    "name": "Intibuca",
+    "country_id": 4
+  },
+  {
+    "id": 55,
+    "name": "Islas de la Bahia",
+    "country_id": 4
+  },
+  {
+    "id": 56,
+    "name": "La Paz",
+    "country_id": 4
+  },
+  {
+    "id": 57,
+    "name": "Lempira",
+    "country_id": 4
+  },
+  {
+    "id": 58,
+    "name": "Ocotepeque",
+    "country_id": 4
+  },
+  {
+    "id": 59,
+    "name": "Olancho",
+    "country_id": 4
+  },
+  {
+    "id": 60,
+    "name": "Santa Barbara",
+    "country_id": 4
+  },
+  {
+    "id": 61,
+    "name": "Valle",
+    "country_id": 4
+  },
+  {
+    "id": 62,
+    "name": "Yoro",
+    "country_id": 4
+  },
+  {
+    "id": 63,
+    "name": "Boaco",
+    "country_id": 5
+  },
+  {
+    "id": 64,
+    "name": "Carazo",
+    "country_id": 5
+  },
+  {
+    "id": 65,
+    "name": "Chinandega",
+    "country_id": 5
+  },
+  {
+    "id": 66,
+    "name": "Chontales",
+    "country_id": 5
+  },
+  {
+    "id": 67,
+    "name": "Esteli",
+    "country_id": 5
+  },
+  {
+    "id": 68,
+    "name": "Granada",
+    "country_id": 5
+  },
+  {
+    "id": 69,
+    "name": "Jinotega",
+    "country_id": 5
+  },
+  {
+    "id": 70,
+    "name": "Leon",
+    "country_id": 5
+  },
+  {
+    "id": 71,
+    "name": "Madriz",
+    "country_id": 5
+  },
+  {
+    "id": 72,
+    "name": "Managua",
+    "country_id": 5
+  },
+  {
+    "id": 73,
+    "name": "Masaya",
+    "country_id": 5
+  },
+  {
+    "id": 74,
+    "name": "Matagalpa",
+    "country_id": 5
+  },
+  {
+    "id": 75,
+    "name": "Nueva Segovia",
+    "country_id": 5
+  },
+  {
+    "id": 76,
+    "name": "Rio San Juan",
+    "country_id": 5
+  },
+  {
+    "id": 77,
+    "name": "Rivas",
+    "country_id": 5
+  },
+  {
+    "id": 78,
+    "name": "Costa Caribe Norte",
+    "country_id": 5
+  },
+  {
+    "id": 79,
+    "name": "Costa Caribe Sur",
+    "country_id": 5
+  }
+]

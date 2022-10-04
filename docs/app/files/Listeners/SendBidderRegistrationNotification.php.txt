@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\BidderCreated;
+use App\Notifications\BidderRegistered;
+use App\Notifications\BidderWelcome;
+use App\TuChance\Models\User;
+
+class SendBidderRegistrationNotification
+{
+    /**
+     * User model
+     * @var \App\TuChance\Models\User
+     */
+    protected $users;
+
+    /**
+     * Create the event listener.
+     * @param  \App\TuChance\Models\User $users
+     * @return void
+     */
+    public function __construct(User $users)
+    {
+        $this->users = $users;
+    }
+
+    /**
+     * Handle the event.
+     * @param  \App\Events\BidderCreated  $event
+     * @return void
+     */
+    public function handle(BidderCreated $event)
+    {
+        $bidder = $event->getBidder();
+
+        if ($bidder->user) {
+            $bidder->user->notify(new BidderWelcome($bidder));
+        }
+
+        $admins = $this->users->role(['admin'])
+            ->where('is_active', 1)
+            ->get();
+
+        if ($admins->count()) {
+            $admins->each(function ($admin) use ($bidder) {
+                $admin->notify(new BidderRegistered($bidder));
+            });
+        }
+    }
+}
+

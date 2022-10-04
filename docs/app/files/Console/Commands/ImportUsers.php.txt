@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Console\ImportCommand;
+use App\TuChance\Models\User;
+
+class ImportUsers extends ImportCommand
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'tuchance:import:users';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Command description';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this->countryId();
+        $this->importTable(function () {
+            return $this->import_connection
+                ->table('users')
+                ->select('roles.name as role')
+                ->addSelect('users.*')
+                ->leftJoin('user_has_roles', 'user_has_roles.user_id', '=', 'users.id')
+                ->leftJoin('roles', 'user_has_roles.role_id', '=', 'roles.id')
+                ->where(function ($query) {
+                    $query->where('users.country_id', $this->countryId());
+                    $query->orWhereIn('users.id', function ($query) {
+                        $query->select('bidders.user_id')
+                            ->from('bidders')
+                            ->where('bidders.country_id', $this->countryId())
+                            ->orWhereIn('bidders.id', function ($query) {
+                                $query->select('opportunities.bidder_id')
+                                    ->from('opportunities')
+                                    ->where(
+                                        'opportunities.country_id',
+                                        $this->countryId()
+                                    );
+                            });
+                    });
+
+                    $query->orWhereIn('users.id', function ($query) {
+                        $query->select('courses.user_id')
+                            ->from('courses');
+                    });
+                })
+                ->orderBy('users.id');
+        }, 'users', [
+            'except' => ['last_login_at'],
+            'map' => [
+                'status' => 'is_active',
+                'role'   => function ($row, $imported) {
+                    if ($imported) {
+                        $user     = new User;
+                        $user->id = $imported->id;
+
+                        if ($row->role == 'oferente') {
+                            $user->syncRoles('bidder');
+                        } elseif ($row->role == 'muchacho') {
+                            $user->syncRoles('candidate');
+                        } else {
+                            $user->syncRoles('admin');
+                        }
+                    }
+
+                    return false;
+                }
+            ],
+        ]);
+    }
+}
+

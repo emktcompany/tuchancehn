@@ -1,0 +1,7 @@
+<?php
+
+namespace App\TuChance\Models;
+
+class Course extends Opportunity
+{
+}

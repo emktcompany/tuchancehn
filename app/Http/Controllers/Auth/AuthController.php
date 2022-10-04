@@ -1,0 +1,228 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
+use App\Http\Resources\UserResource;
+use App\TuChance\Models\SocialLogin;
+use App\TuChance\Models\User;
+use Facebook\Facebook;
+use Google_Client;
+use Google_Service_Oauth2;
+use App\Events\UserLoggedIn;
+use Illuminate\Contracts\Auth\Factory;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
+class AuthController extends Controller
+{
+    /**
+     * Auth factory
+     * @var \Illuminate\Contracts\Auth\Factory
+     */
+    protected $auth;
+
+    /**
+     * Auth factory
+     * @var \App\TuChance\Models\SocialLogin
+     */
+    protected $social_logins;
+
+    /**
+     * Auth factory
+     * @var \App\TuChance\Models\User
+     */
+    protected $users;
+
+    /**
+     * Create a new controller instance
+     * @param  \Illuminate\Contracts\Auth\Factory $auth
+     * @param  \App\TuChance\Models\SocialLogin   $social_logins
+     * @param  \App\TuChance\Models\User          $users
+     * @return void
+     */
+    public function __construct(
+        Factory $auth,
+        User $users,
+        SocialLogin $social_logins
+    ) {
+        $this->auth          = $auth;
+        $this->social_logins = $social_logins;
+        $this->users         = $users;
+    }
+
+    /**
+     * Validate Google token and login
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Google_Client            $client
+     * @param  \Google_Service_Oauth2    $oauth2
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function google(
+        Request $request,
+        Google_Client $client,
+        Google_Service_Oauth2 $oauth2
+    ) {
+        $code        = (string) $request->get('code');
+        $accessToken = $client->fetchAccessTokenWithAuthCode($code);
+
+        if (isset($accessToken['error'])) {
+            return new JsonResponse([
+                'error'      => $accessToken['error_description'],
+                'error_code' => $accessToken['error'],
+            ], 422);
+        }
+
+        $client->setAccessToken($accessToken);
+        $profile = $oauth2->userinfo->get();
+
+        return $this->performSocialLogin('google', [
+            'id'           => $profile->id,
+            'name'         => $profile->name,
+            'email'        => $profile->email,
+            'access_token' => $accessToken,
+        ]);
+    }
+
+    /**
+     * Validate facebook token and login
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Facebook\Facebook        $facebook
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function facebook(Request $request, Facebook $facebook)
+    {
+        $helper = $facebook->getJavaScriptHelper();
+
+        try {
+            $accessToken = $helper->getAccessToken();
+        } catch (FacebookResponseException $e) {
+            return response()->json([
+                'error' => 'Graph returned an error: ' . $e->getMessage(),
+            ], 401);
+        } catch (FacebookSDKException $e) {
+            return response()->json([
+                'error' => 'Facebook SDK returned an error: ' . $e->getMessage(),
+            ], 401);
+        }
+
+        $profile = $facebook->get('/me?fields=email,id,name', $accessToken)
+            ->getGraphUser();
+
+        return $this->performSocialLogin('facebook', [
+            'id'           => $profile->getId(),
+            'name'         => $profile->getName(),
+            'email'        => $profile->getEmail(),
+            'access_token' => (string) $accessToken,
+        ]);
+    }
+
+    /**
+     * Perform social login via given network
+     * @param  string $network
+     * @param  array  $profile
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function performSocialLogin($network, array $profile)
+    {
+        if (!isset($profile['email']) || !isset($profile['id'])) {
+            return new JsonResponse([
+                'error'   => 'no_profile',
+                'profile' => $profile,
+            ], 422);
+        }
+
+        $social = $this->social_logins->firstOrNew([
+            'network'    => $network,
+            'network_id' => $profile['id'],
+        ]);
+
+        if (!$social->exists) {
+            return new JsonResponse([
+                'error'   => 'no_user',
+                'profile' => $profile,
+            ], 401);
+        }
+
+        $token = $this->auth->login($social->user);
+
+        return $this->respondWithToken($token);
+    }
+
+    /**
+     * Get a JWT via given credentials.
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function login(LoginRequest $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        $credentials['is_active'] = 1;
+
+        if (!$token = $this->auth->attempt($credentials)) {
+            return new JsonResponse(['error' => 'Unauthorized'], 401);
+        }
+
+        return $this->respondWithToken($token);
+    }
+
+    /**
+     * Get the authenticated User.
+     * @return \App\Http\Resources\UserResource
+     */
+    public function me()
+    {
+        $user = $this->auth->user();
+
+        if ($user->hasRole('bidder')) {
+            $user->load('bidder.image');
+        }
+
+        if ($user->hasRole('candidate')) {
+            $user->load('candidate.skills');
+            $user->load('candidate.cv');
+        }
+
+        return new UserResource($user->load(
+            'country', 'city', 'state', 'tags', 'avatar', 'tags'
+        ));
+    }
+
+    /**
+     * Log the user out (Invalidate the token).
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
+    {
+        $this->auth->logout();
+
+        return new JsonResponse(['message' => 'Successfully logged out']);
+    }
+
+    /**
+     * Refresh a token.
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh()
+    {
+        return $this->respondWithToken($this->auth->refresh());
+    }
+
+    /**
+     * Get the token array structure.
+     * @param  string $token
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function respondWithToken($token)
+    {
+        event(new UserLoggedIn($this->auth->user()));
+
+        return (new JsonResponse([
+            'access_token' => $token,
+            'token_type'   => 'bearer',
+            'expires_in'   => $this->auth->factory()->getTTL() * 60,
+            'user'         => $this->me(),
+        ]))->header('Authorization', $token);
+    }
+}

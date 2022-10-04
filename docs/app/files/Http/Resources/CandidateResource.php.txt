@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Resources;
+
+class CandidateResource extends BaseResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+            'id'                      => $this->id,
+            'birth'                   => $this->asDate('birth'),
+            'id_type'                 => $this->id_type,
+            'id_number'               => $this->id_number,
+            'driver_license'          => $this->driver_license,
+            'native_language'         => $this->native_language,
+            'others_language'         => $this->others_language,
+            'phone'                   => $this->phone,
+            'cell_phone'              => $this->cell_phone,
+            'school_experiences'      => $this->school_experiences,
+            'work_experience'         => $this->work_experience,
+            'years_experience'        => $this->years_experience,
+            'professional_objective'  => $this->professional_objective,
+            'professional_area'       => $this->professional_area,
+            'professional_experience' => $this->professional_experience,
+            'training_education'      => $this->training_education,
+            'summary'                 => $this->summary,
+            'skills'                  => $this->skills,
+            'references'              => $this->references,
+            'subscription'            => $this->subscription,
+            'interests'               => $this->interests,
+            'gender'                  => $this->gender,
+            'privacy'                 => $this->privacy,
+            'country_id'              => $this->country_id,
+            'state_id'                => $this->state_id,
+            'city_id'                 => $this->city_id,
+            'created_at'              => $this->asDate('created_at'),
+            'skills'                  => SkillResource::collection($this->whenLoaded('skills', function () {
+                return $this->skills->sortBy('pivot.weight');
+            })),
+            'user'                    => new UserResource($this->whenLoaded('user')),
+            'country'                 => new CountryResource($this->whenLoaded('country')),
+            'city'                    => new CityResource($this->whenLoaded('city')),
+            'state'                   => new StateResource($this->whenLoaded('state')),
+            'cv'                      => new AssetResource($this->whenLoaded('cv')),
+        ];
+    }
+}
+

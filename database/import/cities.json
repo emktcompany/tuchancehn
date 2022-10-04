@@ -1,0 +1,6302 @@
+[
+  {
+    "id": 1,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "Ahuachapán"
+  },
+  {
+    "id": 2,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "Atiquizaya"
+  },
+  {
+    "id": 3,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "San Francisco Menéndez"
+  },
+  {
+    "id": 4,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "Tacuba"
+  },
+  {
+    "id": 5,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "Concepción de Ataco"
+  },
+  {
+    "id": 6,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "Jujutla"
+  },
+  {
+    "id": 7,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "Guaymango"
+  },
+  {
+    "id": 8,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "Apaneca"
+  },
+  {
+    "id": 9,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "San Pedro Puxtla"
+  },
+  {
+    "id": 10,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "San Lorenzo"
+  },
+  {
+    "id": 11,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "Turín"
+  },
+  {
+    "id": 12,
+    "state_id": 1,
+    "country_id": 2,
+    "name": "El Refugio"
+  },
+  {
+    "id": 13,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "Sensuntepeque"
+  },
+  {
+    "id": 14,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "Ilobasco"
+  },
+  {
+    "id": 15,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "Victoria"
+  },
+  {
+    "id": 16,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "San Isidro"
+  },
+  {
+    "id": 17,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "Jutiapa"
+  },
+  {
+    "id": 18,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "Tejutepeque"
+  },
+  {
+    "id": 19,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "Dolores"
+  },
+  {
+    "id": 20,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "Cinquera"
+  },
+  {
+    "id": 21,
+    "state_id": 2,
+    "country_id": 2,
+    "name": "Guacotecti"
+  },
+  {
+    "id": 22,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Chalatenango"
+  },
+  {
+    "id": 23,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Nueva Concepción"
+  },
+  {
+    "id": 24,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "La Palma"
+  },
+  {
+    "id": 25,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Tejutla"
+  },
+  {
+    "id": 26,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "La Reina"
+  },
+  {
+    "id": 27,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Arcatao"
+  },
+  {
+    "id": 28,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Ignacio"
+  },
+  {
+    "id": 29,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Dulce Nombre de María"
+  },
+  {
+    "id": 30,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Citalá"
+  },
+  {
+    "id": 31,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Agua Caliente"
+  },
+  {
+    "id": 32,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Concepción Quezaltepeque"
+  },
+  {
+    "id": 33,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Nueva Trinidad"
+  },
+  {
+    "id": 34,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Las Vueltas"
+  },
+  {
+    "id": 35,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Comalapa"
+  },
+  {
+    "id": 36,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Rafael"
+  },
+  {
+    "id": 37,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San José Las Flores"
+  },
+  {
+    "id": 38,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Ojos de Agua"
+  },
+  {
+    "id": 39,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Nombre de Jesús"
+  },
+  {
+    "id": 40,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Potonico"
+  },
+  {
+    "id": 41,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Francisco Morazán"
+  },
+  {
+    "id": 42,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Santa Rita"
+  },
+  {
+    "id": 43,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "La Laguna"
+  },
+  {
+    "id": 44,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Isidro Labrador"
+  },
+  {
+    "id": 45,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Antonio de La Cruz"
+  },
+  {
+    "id": 46,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "El Paraíso"
+  },
+  {
+    "id": 47,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Miguel de Mercedes"
+  },
+  {
+    "id": 48,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Luis del Carmen"
+  },
+  {
+    "id": 49,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San José Cancasque"
+  },
+  {
+    "id": 50,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Antonio Los Ranchos"
+  },
+  {
+    "id": 51,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "El Carrizal"
+  },
+  {
+    "id": 52,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Fernando"
+  },
+  {
+    "id": 53,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "Azacualpa"
+  },
+  {
+    "id": 54,
+    "state_id": 3,
+    "country_id": 2,
+    "name": "San Francisco Lempa"
+  },
+  {
+    "id": 55,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "Cojutepeque"
+  },
+  {
+    "id": 56,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "Suchitoto"
+  },
+  {
+    "id": 57,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "San Pedro Perulapán"
+  },
+  {
+    "id": 58,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "San José Guayabal"
+  },
+  {
+    "id": 59,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "Tenancingo"
+  },
+  {
+    "id": 60,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "San Rafael Cedros"
+  },
+  {
+    "id": 61,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "Candelaria"
+  },
+  {
+    "id": 62,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "El Carmen"
+  },
+  {
+    "id": 63,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "Monte San Juan"
+  },
+  {
+    "id": 64,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "San Cristóbla"
+  },
+  {
+    "id": 65,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "Santa Cruz Michapa"
+  },
+  {
+    "id": 66,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "San Bartolomé Perulapía"
+  },
+  {
+    "id": 67,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "San Ramón"
+  },
+  {
+    "id": 68,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "El Rosario"
+  },
+  {
+    "id": 69,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "Oratorio de Concepción"
+  },
+  {
+    "id": 70,
+    "state_id": 4,
+    "country_id": 2,
+    "name": "Santa Cruz Analquito"
+  },
+  {
+    "id": 71,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Nueva San Salvador"
+  },
+  {
+    "id": 72,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Quezaltepeque"
+  },
+  {
+    "id": 73,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Ciudad Arce"
+  },
+  {
+    "id": 74,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "San Juan Opico"
+  },
+  {
+    "id": 75,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Colón"
+  },
+  {
+    "id": 76,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Puerto de la Libertad"
+  },
+  {
+    "id": 77,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Antiguo Cuscatlán"
+  },
+  {
+    "id": 78,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Comasagua"
+  },
+  {
+    "id": 79,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "San Pablo Tacachico"
+  },
+  {
+    "id": 80,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Jayaque"
+  },
+  {
+    "id": 81,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Huizucar"
+  },
+  {
+    "id": 82,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Tepecoyo"
+  },
+  {
+    "id": 83,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Teotepeque"
+  },
+  {
+    "id": 84,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Chiltiupán"
+  },
+  {
+    "id": 85,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Nuevo Cuscatlán"
+  },
+  {
+    "id": 86,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Tamanique"
+  },
+  {
+    "id": 87,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Sacacoyo"
+  },
+  {
+    "id": 88,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "San José Villa Nueva"
+  },
+  {
+    "id": 89,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Zaragoza"
+  },
+  {
+    "id": 90,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Talnique"
+  },
+  {
+    "id": 91,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "San Matías"
+  },
+  {
+    "id": 92,
+    "state_id": 5,
+    "country_id": 2,
+    "name": "Jicalapa"
+  },
+  {
+    "id": 93,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Zacatecoluca"
+  },
+  {
+    "id": 94,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Santiago Nonualco"
+  },
+  {
+    "id": 95,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Juan Nonualco"
+  },
+  {
+    "id": 96,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Pedro Masahuat"
+  },
+  {
+    "id": 97,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Olocuilta"
+  },
+  {
+    "id": 98,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Pedro Nonualco"
+  },
+  {
+    "id": 99,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Francisco Chinameca"
+  },
+  {
+    "id": 100,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Juan Talpa"
+  },
+  {
+    "id": 101,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "El Rosario"
+  },
+  {
+    "id": 102,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Rafael Obrajuelo"
+  },
+  {
+    "id": 103,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Santa María Ostuma"
+  },
+  {
+    "id": 104,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Luis Talpa"
+  },
+  {
+    "id": 105,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Antonio Masahuat"
+  },
+  {
+    "id": 106,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Miguel Tepezontes"
+  },
+  {
+    "id": 107,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Juan Tepezontes"
+  },
+  {
+    "id": 108,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Tapalhuaca"
+  },
+  {
+    "id": 109,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Cuyultitán"
+  },
+  {
+    "id": 110,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Paraíso de Osorio"
+  },
+  {
+    "id": 111,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Emigdio"
+  },
+  {
+    "id": 112,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Jerusalén"
+  },
+  {
+    "id": 113,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Mercedes La Ceiba"
+  },
+  {
+    "id": 114,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Luis La Herradura"
+  },
+  {
+    "id": 115,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "La Unión"
+  },
+  {
+    "id": 116,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Santa Rosa de Lima"
+  },
+  {
+    "id": 117,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Pasaquina"
+  },
+  {
+    "id": 118,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "San Alejo"
+  },
+  {
+    "id": 119,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Anamorós"
+  },
+  {
+    "id": 120,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "El Carmen"
+  },
+  {
+    "id": 121,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Conchagua"
+  },
+  {
+    "id": 122,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "El Sauce"
+  },
+  {
+    "id": 123,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Lislique"
+  },
+  {
+    "id": 124,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Yucuayquín"
+  },
+  {
+    "id": 125,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Nueva Esparta"
+  },
+  {
+    "id": 126,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Polorós"
+  },
+  {
+    "id": 127,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Bolívar"
+  },
+  {
+    "id": 128,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Concepción de Oriente"
+  },
+  {
+    "id": 129,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Intipucá"
+  },
+  {
+    "id": 130,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "San José La Fuente"
+  },
+  {
+    "id": 131,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Yayantique"
+  },
+  {
+    "id": 132,
+    "state_id": 7,
+    "country_id": 2,
+    "name": "Meanguera del Golfo"
+  },
+  {
+    "id": 133,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "San Francisco Gotera"
+  },
+  {
+    "id": 134,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Jocoro"
+  },
+  {
+    "id": 135,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Corinto"
+  },
+  {
+    "id": 136,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Sociedad"
+  },
+  {
+    "id": 137,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Cacaopera"
+  },
+  {
+    "id": 138,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Guatajiagüa"
+  },
+  {
+    "id": 139,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "El Divisadero"
+  },
+  {
+    "id": 140,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Jocoaitique"
+  },
+  {
+    "id": 141,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Osicala"
+  },
+  {
+    "id": 142,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Chilanga"
+  },
+  {
+    "id": 143,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Meanguera"
+  },
+  {
+    "id": 144,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Torola"
+  },
+  {
+    "id": 145,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "San Simón"
+  },
+  {
+    "id": 146,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Delicias de Concepción"
+  },
+  {
+    "id": 147,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Joateca"
+  },
+  {
+    "id": 148,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Arambala"
+  },
+  {
+    "id": 149,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Lolotiquillo"
+  },
+  {
+    "id": 150,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Yamabal"
+  },
+  {
+    "id": 151,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Yoloaiquín"
+  },
+  {
+    "id": 152,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "San Carlos"
+  },
+  {
+    "id": 153,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "El Rosario"
+  },
+  {
+    "id": 154,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Perquín"
+  },
+  {
+    "id": 155,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Sensembra"
+  },
+  {
+    "id": 156,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "Gualococti"
+  },
+  {
+    "id": 157,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "San Fernando"
+  },
+  {
+    "id": 158,
+    "state_id": 8,
+    "country_id": 2,
+    "name": "San Isidro"
+  },
+  {
+    "id": 159,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "San Miguel"
+  },
+  {
+    "id": 160,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Chinameca"
+  },
+  {
+    "id": 161,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "El Tránsito"
+  },
+  {
+    "id": 162,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Ciudad Barrios"
+  },
+  {
+    "id": 163,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Chirilagua"
+  },
+  {
+    "id": 164,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Sesori"
+  },
+  {
+    "id": 165,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "San Rafael Oriente"
+  },
+  {
+    "id": 166,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Moncagua"
+  },
+  {
+    "id": 167,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Lolotique"
+  },
+  {
+    "id": 168,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "San Jorge"
+  },
+  {
+    "id": 169,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Chapeltique"
+  },
+  {
+    "id": 170,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "San Gerardo"
+  },
+  {
+    "id": 171,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Carolina"
+  },
+  {
+    "id": 172,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Quelepa"
+  },
+  {
+    "id": 173,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "San Luis de La Reina"
+  },
+  {
+    "id": 174,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Nuevo Edén de San Juan"
+  },
+  {
+    "id": 175,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Nueva Guadalupe"
+  },
+  {
+    "id": 176,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Uluazapa"
+  },
+  {
+    "id": 177,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "Comacarán"
+  },
+  {
+    "id": 178,
+    "state_id": 9,
+    "country_id": 2,
+    "name": "San Antonio del Mosco"
+  },
+  {
+    "id": 179,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "San Salvador"
+  },
+  {
+    "id": 180,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Ciudad Delgado"
+  },
+  {
+    "id": 181,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Mejicanos"
+  },
+  {
+    "id": 182,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Soyapango"
+  },
+  {
+    "id": 183,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Cuscatancingo"
+  },
+  {
+    "id": 184,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "San Marcos"
+  },
+  {
+    "id": 185,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Ilopango"
+  },
+  {
+    "id": 186,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Nejapa"
+  },
+  {
+    "id": 187,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Apopa"
+  },
+  {
+    "id": 188,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "San Martín"
+  },
+  {
+    "id": 189,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Panchimalco"
+  },
+  {
+    "id": 190,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Aguilares"
+  },
+  {
+    "id": 191,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Tonacatepeque"
+  },
+  {
+    "id": 192,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Santo Tomás"
+  },
+  {
+    "id": 193,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Santiago Texacuangos"
+  },
+  {
+    "id": 194,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "El Paisnal"
+  },
+  {
+    "id": 195,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Guazapa"
+  },
+  {
+    "id": 196,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Ayutuxtepeque"
+  },
+  {
+    "id": 197,
+    "state_id": 10,
+    "country_id": 2,
+    "name": "Rosario de Mora"
+  },
+  {
+    "id": 198,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Santa Ana"
+  },
+  {
+    "id": 199,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Chalchuapa"
+  },
+  {
+    "id": 200,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Metapán"
+  },
+  {
+    "id": 201,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Coatepeque"
+  },
+  {
+    "id": 202,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "El Congo"
+  },
+  {
+    "id": 203,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Texistepeque"
+  },
+  {
+    "id": 204,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Candelaria la Frontera"
+  },
+  {
+    "id": 205,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "San Sebastián Salitrillo"
+  },
+  {
+    "id": 206,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Santa Rosa Guachipilín "
+  },
+  {
+    "id": 207,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Santiago de la Frontera"
+  },
+  {
+    "id": 208,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "El Porvenir"
+  },
+  {
+    "id": 209,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "Masahuat"
+  },
+  {
+    "id": 210,
+    "state_id": 11,
+    "country_id": 2,
+    "name": "San Antonio Pajonal"
+  },
+  {
+    "id": 211,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "San Vicente"
+  },
+  {
+    "id": 212,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "Tecoluca"
+  },
+  {
+    "id": 213,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "San Sebastián"
+  },
+  {
+    "id": 214,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "Apastepeque"
+  },
+  {
+    "id": 215,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "San Esteban Catarina"
+  },
+  {
+    "id": 216,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "San Ildefonso"
+  },
+  {
+    "id": 217,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "Santa Clara"
+  },
+  {
+    "id": 218,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "San Lorenzo"
+  },
+  {
+    "id": 219,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "Verapaz"
+  },
+  {
+    "id": 220,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "Guadalupe"
+  },
+  {
+    "id": 221,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "Santo Domingo"
+  },
+  {
+    "id": 222,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "San Cayetano Istepeque"
+  },
+  {
+    "id": 223,
+    "state_id": 12,
+    "country_id": 2,
+    "name": "Nuevo Tepetitán"
+  },
+  {
+    "id": 224,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Sonsonate"
+  },
+  {
+    "id": 225,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Izalco"
+  },
+  {
+    "id": 226,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Acajutla"
+  },
+  {
+    "id": 227,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Armenia"
+  },
+  {
+    "id": 228,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Nahuizalco"
+  },
+  {
+    "id": 229,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Juayúa"
+  },
+  {
+    "id": 230,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "San Julián"
+  },
+  {
+    "id": 231,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Sonzacate"
+  },
+  {
+    "id": 232,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "San Antonio del Monte"
+  },
+  {
+    "id": 233,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Nahulingo"
+  },
+  {
+    "id": 234,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Cuisnahuat"
+  },
+  {
+    "id": 235,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Santa Catarina Masahuat"
+  },
+  {
+    "id": 236,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Caluco"
+  },
+  {
+    "id": 237,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Santa Isabel Ishuatán"
+  },
+  {
+    "id": 238,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Salcoatitán"
+  },
+  {
+    "id": 239,
+    "state_id": 13,
+    "country_id": 2,
+    "name": "Santo Domingo de Guzmán"
+  },
+  {
+    "id": 240,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Usulután"
+  },
+  {
+    "id": 241,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Jiquilisco"
+  },
+  {
+    "id": 242,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Berlín"
+  },
+  {
+    "id": 243,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Santiago de María"
+  },
+  {
+    "id": 244,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Jucuapa"
+  },
+  {
+    "id": 245,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Santa Elena"
+  },
+  {
+    "id": 246,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Jucuarán"
+  },
+  {
+    "id": 247,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "San Agustín"
+  },
+  {
+    "id": 248,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Ozatlán"
+  },
+  {
+    "id": 249,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Estanzuelas"
+  },
+  {
+    "id": 250,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Mercedes Umaña"
+  },
+  {
+    "id": 251,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Alegría"
+  },
+  {
+    "id": 252,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Concepción Batres"
+  },
+  {
+    "id": 253,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "San Francisco Javier"
+  },
+  {
+    "id": 254,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Puerto El Triunfo"
+  },
+  {
+    "id": 255,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Tecapán"
+  },
+  {
+    "id": 256,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "San Dionisio"
+  },
+  {
+    "id": 257,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Ereguayquín"
+  },
+  {
+    "id": 258,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Santa María"
+  },
+  {
+    "id": 259,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "Nueva Granada"
+  },
+  {
+    "id": 260,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "El Triunfo"
+  },
+  {
+    "id": 261,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "San Buenaventura"
+  },
+  {
+    "id": 262,
+    "state_id": 14,
+    "country_id": 2,
+    "name": "California"
+  },
+  {
+    "id": 280,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Chahal"
+  },
+  {
+    "id": 281,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Chisec"
+  },
+  {
+    "id": 282,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Cobán"
+  },
+  {
+    "id": 283,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Fray Bartolomé de las Casas"
+  },
+  {
+    "id": 284,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Santa Catalina La Tinta"
+  },
+  {
+    "id": 285,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Lanquín"
+  },
+  {
+    "id": 286,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Panzós"
+  },
+  {
+    "id": 287,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Raxruhá"
+  },
+  {
+    "id": 288,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "San Cristóbal Verapaz"
+  },
+  {
+    "id": 289,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "San Juan Chamelco"
+  },
+  {
+    "id": 290,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "San Pedro Carchá"
+  },
+  {
+    "id": 291,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Santa Cruz Verapaz"
+  },
+  {
+    "id": 292,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Santa María Cahabón"
+  },
+  {
+    "id": 293,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Senahú"
+  },
+  {
+    "id": 294,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Tamahú"
+  },
+  {
+    "id": 295,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Tactic"
+  },
+  {
+    "id": 296,
+    "state_id": 23,
+    "country_id": 3,
+    "name": "Tucurú"
+  },
+  {
+    "id": 297,
+    "state_id": 24,
+    "country_id": 3,
+    "name": "Cubulco"
+  },
+  {
+    "id": 298,
+    "state_id": 24,
+    "country_id": 3,
+    "name": "Granados"
+  },
+  {
+    "id": 299,
+    "state_id": 24,
+    "country_id": 3,
+    "name": "Purulhá"
+  },
+  {
+    "id": 300,
+    "state_id": 24,
+    "country_id": 3,
+    "name": "Rabinal"
+  },
+  {
+    "id": 301,
+    "state_id": 24,
+    "country_id": 3,
+    "name": "Salamá"
+  },
+  {
+    "id": 302,
+    "state_id": 24,
+    "country_id": 3,
+    "name": "San Jerónimo"
+  },
+  {
+    "id": 303,
+    "state_id": 24,
+    "country_id": 3,
+    "name": "San Miguel Chicaj"
+  },
+  {
+    "id": 304,
+    "state_id": 24,
+    "country_id": 3,
+    "name": "Santa Cruz el Chol"
+  },
+  {
+    "id": 305,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Acatenango"
+  },
+  {
+    "id": 306,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Chimaltenango"
+  },
+  {
+    "id": 307,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "El Tejar"
+  },
+  {
+    "id": 308,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Parramos"
+  },
+  {
+    "id": 309,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Patzicía"
+  },
+  {
+    "id": 310,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Patzún"
+  },
+  {
+    "id": 311,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Pochuta"
+  },
+  {
+    "id": 312,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "San Andrés Itzapa"
+  },
+  {
+    "id": 313,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "San José Poaquíl"
+  },
+  {
+    "id": 314,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "San Juan Comalapa"
+  },
+  {
+    "id": 315,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "San Martín Jilotepeque"
+  },
+  {
+    "id": 316,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Santa Apolonia"
+  },
+  {
+    "id": 317,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Santa Cruz Balanyá"
+  },
+  {
+    "id": 318,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Tecpán"
+  },
+  {
+    "id": 319,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Yepocapa"
+  },
+  {
+    "id": 320,
+    "state_id": 25,
+    "country_id": 3,
+    "name": "Zaragoza"
+  },
+  {
+    "id": 321,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "Camotán"
+  },
+  {
+    "id": 322,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "Chiquimula"
+  },
+  {
+    "id": 323,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "Concepción Las Minas"
+  },
+  {
+    "id": 324,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "Esquipulas"
+  },
+  {
+    "id": 325,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "Ipala"
+  },
+  {
+    "id": 326,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "Jocotán"
+  },
+  {
+    "id": 327,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "Olopa"
+  },
+  {
+    "id": 328,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "Quetzaltepeque"
+  },
+  {
+    "id": 329,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "San Jacinto"
+  },
+  {
+    "id": 330,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "San José la Arada"
+  },
+  {
+    "id": 331,
+    "state_id": 26,
+    "country_id": 3,
+    "name": "San Juan Ermita"
+  },
+  {
+    "id": 332,
+    "state_id": 27,
+    "country_id": 3,
+    "name": "El Jícaro"
+  },
+  {
+    "id": 333,
+    "state_id": 27,
+    "country_id": 3,
+    "name": "Guastatoya"
+  },
+  {
+    "id": 334,
+    "state_id": 27,
+    "country_id": 3,
+    "name": "Morazán"
+  },
+  {
+    "id": 335,
+    "state_id": 27,
+    "country_id": 3,
+    "name": "San Agustín Acasaguastlán"
+  },
+  {
+    "id": 336,
+    "state_id": 27,
+    "country_id": 3,
+    "name": "San Antonio La Paz"
+  },
+  {
+    "id": 337,
+    "state_id": 27,
+    "country_id": 3,
+    "name": "San Cristóbal Acasaguastlán"
+  },
+  {
+    "id": 338,
+    "state_id": 27,
+    "country_id": 3,
+    "name": "Sanarate"
+  },
+  {
+    "id": 339,
+    "state_id": 27,
+    "country_id": 3,
+    "name": "Sansare"
+  },
+  {
+    "id": 340,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Escuintla"
+  },
+  {
+    "id": 341,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Guanagazapa"
+  },
+  {
+    "id": 342,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Iztapa"
+  },
+  {
+    "id": 343,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "La Democracia"
+  },
+  {
+    "id": 344,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "La Gomera"
+  },
+  {
+    "id": 345,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Masagua"
+  },
+  {
+    "id": 346,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Nueva Concepción"
+  },
+  {
+    "id": 347,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Palín"
+  },
+  {
+    "id": 348,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "San José"
+  },
+  {
+    "id": 349,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "San Vicente Pacaya"
+  },
+  {
+    "id": 350,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Santa Lucía Cotzumalguapa"
+  },
+  {
+    "id": 351,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Siquinalá"
+  },
+  {
+    "id": 352,
+    "state_id": 28,
+    "country_id": 3,
+    "name": "Tiquisate"
+  },
+  {
+    "id": 353,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Amatitlán"
+  },
+  {
+    "id": 354,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Chinautla"
+  },
+  {
+    "id": 355,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Chuarrancho"
+  },
+  {
+    "id": 356,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Ciudad de Guatemala"
+  },
+  {
+    "id": 357,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Fraijanes"
+  },
+  {
+    "id": 358,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Mixco"
+  },
+  {
+    "id": 359,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Palencia"
+  },
+  {
+    "id": 360,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "San José del Golfo"
+  },
+  {
+    "id": 361,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "San José Pinula"
+  },
+  {
+    "id": 362,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "San Juan Sacatepéquez"
+  },
+  {
+    "id": 363,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "San Miguel Petapa"
+  },
+  {
+    "id": 364,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "San Pedro Ayampuc"
+  },
+  {
+    "id": 365,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "San Pedro Sacatepéquez"
+  },
+  {
+    "id": 366,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "San Raymundo"
+  },
+  {
+    "id": 367,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Santa Catarina Pinula"
+  },
+  {
+    "id": 368,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Villa Canales"
+  },
+  {
+    "id": 369,
+    "state_id": 29,
+    "country_id": 3,
+    "name": "Villa Nueva"
+  },
+  {
+    "id": 370,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Aguacatán"
+  },
+  {
+    "id": 371,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Chiantla"
+  },
+  {
+    "id": 372,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Colotenango"
+  },
+  {
+    "id": 373,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Concepción Huista"
+  },
+  {
+    "id": 374,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Cuilco"
+  },
+  {
+    "id": 375,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Huehuetenango"
+  },
+  {
+    "id": 376,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Jacaltenango"
+  },
+  {
+    "id": 377,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "La Democracia"
+  },
+  {
+    "id": 378,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "La Libertad"
+  },
+  {
+    "id": 379,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Malacatancito"
+  },
+  {
+    "id": 380,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Nentón"
+  },
+  {
+    "id": 381,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Antonio Huista"
+  },
+  {
+    "id": 382,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Gaspar Ixchil"
+  },
+  {
+    "id": 383,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Ildefonso Ixtahuacán"
+  },
+  {
+    "id": 384,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Juan Atitán"
+  },
+  {
+    "id": 385,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Juan Ixcoy"
+  },
+  {
+    "id": 386,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Mateo Ixtatán"
+  },
+  {
+    "id": 387,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Miguel Acatán"
+  },
+  {
+    "id": 388,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Pedro Nécta"
+  },
+  {
+    "id": 389,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Pedro Soloma"
+  },
+  {
+    "id": 390,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Rafael La Independencia"
+  },
+  {
+    "id": 391,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Rafael Pétzal"
+  },
+  {
+    "id": 392,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Sebastián Coatán"
+  },
+  {
+    "id": 393,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "San Sebastián Huehuetenango"
+  },
+  {
+    "id": 394,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Santa Ana Huista"
+  },
+  {
+    "id": 395,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Santa Bárbara"
+  },
+  {
+    "id": 396,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Santa Cruz Barillas"
+  },
+  {
+    "id": 397,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Santa Eulalia"
+  },
+  {
+    "id": 398,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Santiago Chimaltenango"
+  },
+  {
+    "id": 399,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Tectitán"
+  },
+  {
+    "id": 400,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Todos Santos Cuchumatán"
+  },
+  {
+    "id": 401,
+    "state_id": 30,
+    "country_id": 3,
+    "name": "Unión Cantinil"
+  },
+  {
+    "id": 402,
+    "state_id": 31,
+    "country_id": 3,
+    "name": "El Estor"
+  },
+  {
+    "id": 403,
+    "state_id": 31,
+    "country_id": 3,
+    "name": "Livingston"
+  },
+  {
+    "id": 404,
+    "state_id": 31,
+    "country_id": 3,
+    "name": "Los Amates"
+  },
+  {
+    "id": 405,
+    "state_id": 31,
+    "country_id": 3,
+    "name": "Morales"
+  },
+  {
+    "id": 406,
+    "state_id": 31,
+    "country_id": 3,
+    "name": "Puerto Barrios"
+  },
+  {
+    "id": 407,
+    "state_id": 32,
+    "country_id": 3,
+    "name": "Jalapa"
+  },
+  {
+    "id": 408,
+    "state_id": 32,
+    "country_id": 3,
+    "name": "Mataquescuintla"
+  },
+  {
+    "id": 409,
+    "state_id": 32,
+    "country_id": 3,
+    "name": "Monjas"
+  },
+  {
+    "id": 410,
+    "state_id": 32,
+    "country_id": 3,
+    "name": "San Carlos Alzatate"
+  },
+  {
+    "id": 411,
+    "state_id": 32,
+    "country_id": 3,
+    "name": "San Luis Jilotepeque"
+  },
+  {
+    "id": 412,
+    "state_id": 32,
+    "country_id": 3,
+    "name": "San Manuel Chaparrón"
+  },
+  {
+    "id": 413,
+    "state_id": 32,
+    "country_id": 3,
+    "name": "San Pedro Pinula"
+  },
+  {
+    "id": 414,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Agua Blanca"
+  },
+  {
+    "id": 415,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Asunción Mita"
+  },
+  {
+    "id": 416,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Atescatempa"
+  },
+  {
+    "id": 417,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Comapa"
+  },
+  {
+    "id": 418,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Conguaco"
+  },
+  {
+    "id": 419,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "El Adelanto"
+  },
+  {
+    "id": 420,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "El Progreso"
+  },
+  {
+    "id": 421,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Jalpatagua"
+  },
+  {
+    "id": 422,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Jerez"
+  },
+  {
+    "id": 423,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Jutiapa"
+  },
+  {
+    "id": 424,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Moyuta"
+  },
+  {
+    "id": 425,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Pasaco"
+  },
+  {
+    "id": 426,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "QuSVda"
+  },
+  {
+    "id": 427,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "San José Acatempa"
+  },
+  {
+    "id": 428,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Santa Catarina Mita"
+  },
+  {
+    "id": 429,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Yupiltepeque"
+  },
+  {
+    "id": 430,
+    "state_id": 33,
+    "country_id": 3,
+    "name": "Zapotitlán"
+  },
+  {
+    "id": 431,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "Dolores"
+  },
+  {
+    "id": 432,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "El Chal"
+  },
+  {
+    "id": 433,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "Flores"
+  },
+  {
+    "id": 434,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "La Libertad"
+  },
+  {
+    "id": 435,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "Las Cruces"
+  },
+  {
+    "id": 436,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "Melchor de Mencos"
+  },
+  {
+    "id": 437,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "Poptún"
+  },
+  {
+    "id": 438,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "San Andrés"
+  },
+  {
+    "id": 439,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "San Benito"
+  },
+  {
+    "id": 440,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "San Francisco"
+  },
+  {
+    "id": 441,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "San José"
+  },
+  {
+    "id": 442,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "San Luis"
+  },
+  {
+    "id": 443,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "Santa Ana"
+  },
+  {
+    "id": 444,
+    "state_id": 34,
+    "country_id": 3,
+    "name": "Sayaxché"
+  },
+  {
+    "id": 445,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Almolonga"
+  },
+  {
+    "id": 446,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Cabricán"
+  },
+  {
+    "id": 447,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Cajolá"
+  },
+  {
+    "id": 448,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Cantel"
+  },
+  {
+    "id": 449,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Coatepeque"
+  },
+  {
+    "id": 450,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Colomba Costa Cuca"
+  },
+  {
+    "id": 451,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Concepción Chiquirichapa"
+  },
+  {
+    "id": 452,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "El Palmar"
+  },
+  {
+    "id": 453,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Flores Costa Cuca"
+  },
+  {
+    "id": 454,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Génova"
+  },
+  {
+    "id": 455,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Huitán"
+  },
+  {
+    "id": 456,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "La Esperanza"
+  },
+  {
+    "id": 457,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Olintepeque"
+  },
+  {
+    "id": 458,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Palestina de Los Altos"
+  },
+  {
+    "id": 459,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Quetzaltenango"
+  },
+  {
+    "id": 460,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Salcajá"
+  },
+  {
+    "id": 461,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "San Carlos Sija"
+  },
+  {
+    "id": 462,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "San Francisco La Unión"
+  },
+  {
+    "id": 463,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "San Juan Ostuncalco"
+  },
+  {
+    "id": 464,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "San Martín Sacatepéquez"
+  },
+  {
+    "id": 465,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "San Mateo"
+  },
+  {
+    "id": 466,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "San Miguel Sigüilá"
+  },
+  {
+    "id": 467,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Sibilia"
+  },
+  {
+    "id": 468,
+    "state_id": 35,
+    "country_id": 3,
+    "name": "Zunil"
+  },
+  {
+    "id": 469,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Canillá"
+  },
+  {
+    "id": 470,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Chajul"
+  },
+  {
+    "id": 471,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Chicamán"
+  },
+  {
+    "id": 472,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Chiché"
+  },
+  {
+    "id": 473,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Santo Tomás Chichicastenango"
+  },
+  {
+    "id": 474,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Chinique"
+  },
+  {
+    "id": 475,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Cunén"
+  },
+  {
+    "id": 476,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Ixcán"
+  },
+  {
+    "id": 477,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Joyabaj"
+  },
+  {
+    "id": 478,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Nebaj"
+  },
+  {
+    "id": 479,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Pachalum"
+  },
+  {
+    "id": 480,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Patzité"
+  },
+  {
+    "id": 481,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Sacapulas"
+  },
+  {
+    "id": 482,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "San Andrés Sajcabajá"
+  },
+  {
+    "id": 483,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "San Antonio Ilotenango"
+  },
+  {
+    "id": 484,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "San Bartolomé Jocotenango"
+  },
+  {
+    "id": 485,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "San Juan Cotzal"
+  },
+  {
+    "id": 486,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "San Pedro Jocopilas"
+  },
+  {
+    "id": 487,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Santa Cruz del Quiché"
+  },
+  {
+    "id": 488,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Uspantán"
+  },
+  {
+    "id": 489,
+    "state_id": 36,
+    "country_id": 3,
+    "name": "Zacualpa"
+  },
+  {
+    "id": 490,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "Champerico"
+  },
+  {
+    "id": 491,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "El Asintal"
+  },
+  {
+    "id": 492,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "Nuevo San Carlos"
+  },
+  {
+    "id": 493,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "Retalhuleu"
+  },
+  {
+    "id": 494,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "San Andrés Villa Seca"
+  },
+  {
+    "id": 495,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "San Felipe"
+  },
+  {
+    "id": 496,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "San Martín Zapotitlán"
+  },
+  {
+    "id": 497,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "San Sebastián"
+  },
+  {
+    "id": 498,
+    "state_id": 37,
+    "country_id": 3,
+    "name": "Santa Cruz Muluá"
+  },
+  {
+    "id": 499,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Alotenango"
+  },
+  {
+    "id": 500,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Ciudad Vieja"
+  },
+  {
+    "id": 501,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Jocotenango"
+  },
+  {
+    "id": 502,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "La Antigua Guatemala"
+  },
+  {
+    "id": 503,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Magdalena Milpas Altas"
+  },
+  {
+    "id": 504,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Pastores"
+  },
+  {
+    "id": 505,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "San Antonio Aguas Calientes"
+  },
+  {
+    "id": 506,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "San Bartolomé Milpas Altas"
+  },
+  {
+    "id": 507,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "San Lucas Sacatepéquez"
+  },
+  {
+    "id": 508,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "San Miguel Dueñas"
+  },
+  {
+    "id": 509,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Santa Catarina Barahona"
+  },
+  {
+    "id": 510,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Santa Lucía Milpas Altas"
+  },
+  {
+    "id": 511,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Santa María de Jesús"
+  },
+  {
+    "id": 512,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Santiago Sacatepéquez"
+  },
+  {
+    "id": 513,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Santo Domingo Xenacoj"
+  },
+  {
+    "id": 514,
+    "state_id": 38,
+    "country_id": 3,
+    "name": "Sumpango"
+  },
+  {
+    "id": 515,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Ayutla"
+  },
+  {
+    "id": 516,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Catarina"
+  },
+  {
+    "id": 517,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Comitancillo"
+  },
+  {
+    "id": 518,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Concepción Tutuapa"
+  },
+  {
+    "id": 519,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "El Quetzal"
+  },
+  {
+    "id": 520,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "El Tumbador"
+  },
+  {
+    "id": 521,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Esquipulas Palo Gordo"
+  },
+  {
+    "id": 522,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Ixchiguán"
+  },
+  {
+    "id": 523,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "La Blanca"
+  },
+  {
+    "id": 524,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "La Reforma"
+  },
+  {
+    "id": 525,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Malacatán"
+  },
+  {
+    "id": 526,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Nuevo Progreso"
+  },
+  {
+    "id": 527,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Ocós"
+  },
+  {
+    "id": 528,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Pajapita"
+  },
+  {
+    "id": 529,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Río Blanco"
+  },
+  {
+    "id": 530,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San Antonio Sacatepéquez"
+  },
+  {
+    "id": 531,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San Cristóbal Cucho"
+  },
+  {
+    "id": 532,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San José El Rodeo"
+  },
+  {
+    "id": 533,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San José Ojetenam"
+  },
+  {
+    "id": 534,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San Lorenzo"
+  },
+  {
+    "id": 535,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San Marcos"
+  },
+  {
+    "id": 536,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San Miguel Ixtahuacán"
+  },
+  {
+    "id": 537,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San Pablo"
+  },
+  {
+    "id": 538,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San Pedro Sacatepéquez"
+  },
+  {
+    "id": 539,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "San Rafael Pie de la Cuesta"
+  },
+  {
+    "id": 540,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Sibinal"
+  },
+  {
+    "id": 541,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Sipacapa"
+  },
+  {
+    "id": 542,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Tacaná"
+  },
+  {
+    "id": 543,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Tajumulco"
+  },
+  {
+    "id": 544,
+    "state_id": 39,
+    "country_id": 3,
+    "name": "Tejutla"
+  },
+  {
+    "id": 545,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Barberena"
+  },
+  {
+    "id": 546,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Casillas"
+  },
+  {
+    "id": 547,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Chiquimulilla"
+  },
+  {
+    "id": 548,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Cuilapa"
+  },
+  {
+    "id": 549,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Guazacapán"
+  },
+  {
+    "id": 550,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Nueva Santa Rosa"
+  },
+  {
+    "id": 551,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Oratorio"
+  },
+  {
+    "id": 552,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Pueblo Nuevo Viñas"
+  },
+  {
+    "id": 553,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "San Juan Tecuaco"
+  },
+  {
+    "id": 554,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "San Rafael las Flores"
+  },
+  {
+    "id": 555,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Santa Cruz Naranjo"
+  },
+  {
+    "id": 556,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Santa María Ixhuatán"
+  },
+  {
+    "id": 557,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Santa Rosa de Lima"
+  },
+  {
+    "id": 558,
+    "state_id": 40,
+    "country_id": 3,
+    "name": "Taxisco"
+  },
+  {
+    "id": 559,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Concepción"
+  },
+  {
+    "id": 560,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Nahualá"
+  },
+  {
+    "id": 561,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Panajachel"
+  },
+  {
+    "id": 562,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "San Andrés Semetabaj"
+  },
+  {
+    "id": 563,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "San Antonio Palopó"
+  },
+  {
+    "id": 564,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "San José Chacayá"
+  },
+  {
+    "id": 565,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "San Juan La Laguna"
+  },
+  {
+    "id": 566,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "San Lucas Tolimán"
+  },
+  {
+    "id": 567,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "San Marcos La Laguna"
+  },
+  {
+    "id": 568,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "San Pablo La Laguna"
+  },
+  {
+    "id": 569,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "San Pedro La Laguna"
+  },
+  {
+    "id": 570,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Santa Catarina Ixtahuacán"
+  },
+  {
+    "id": 571,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Santa Catarina Palopó"
+  },
+  {
+    "id": 572,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Santa Clara La Laguna"
+  },
+  {
+    "id": 573,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Santa Cruz La Laguna"
+  },
+  {
+    "id": 574,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Santa Lucía Utatlán"
+  },
+  {
+    "id": 575,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Santa María Visitación"
+  },
+  {
+    "id": 576,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Santiago Atitlán"
+  },
+  {
+    "id": 577,
+    "state_id": 41,
+    "country_id": 3,
+    "name": "Sololá"
+  },
+  {
+    "id": 578,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Chicacao"
+  },
+  {
+    "id": 579,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Cuyotenango"
+  },
+  {
+    "id": 580,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Mazatenango"
+  },
+  {
+    "id": 581,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Patulul"
+  },
+  {
+    "id": 582,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Pueblo Nuevo"
+  },
+  {
+    "id": 583,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Río Bravo"
+  },
+  {
+    "id": 584,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Samayac"
+  },
+  {
+    "id": 585,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San Antonio Suchitepéquez"
+  },
+  {
+    "id": 586,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San Bernardino"
+  },
+  {
+    "id": 587,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San Francisco Zapotitlán"
+  },
+  {
+    "id": 588,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San Gabriel"
+  },
+  {
+    "id": 589,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San José El Idolo"
+  },
+  {
+    "id": 590,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San José La Maquina"
+  },
+  {
+    "id": 591,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San Juan Bautista"
+  },
+  {
+    "id": 592,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San Lorenzo"
+  },
+  {
+    "id": 593,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San Miguel Panán"
+  },
+  {
+    "id": 594,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "San Pablo Jocopilas"
+  },
+  {
+    "id": 595,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Santa Bárbara"
+  },
+  {
+    "id": 596,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Santo Domingo Suchitepéquez"
+  },
+  {
+    "id": 597,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Santo Tomás La Unión"
+  },
+  {
+    "id": 598,
+    "state_id": 42,
+    "country_id": 3,
+    "name": "Zunilito"
+  },
+  {
+    "id": 599,
+    "state_id": 43,
+    "country_id": 3,
+    "name": "Momostenango"
+  },
+  {
+    "id": 600,
+    "state_id": 43,
+    "country_id": 3,
+    "name": "San Andrés Xecul"
+  },
+  {
+    "id": 601,
+    "state_id": 43,
+    "country_id": 3,
+    "name": "San Bartolo"
+  },
+  {
+    "id": 602,
+    "state_id": 43,
+    "country_id": 3,
+    "name": "San Cristóbal Totonicapán"
+  },
+  {
+    "id": 603,
+    "state_id": 43,
+    "country_id": 3,
+    "name": "San Francisco El Alto"
+  },
+  {
+    "id": 604,
+    "state_id": 43,
+    "country_id": 3,
+    "name": "Santa Lucía La Reforma"
+  },
+  {
+    "id": 605,
+    "state_id": 43,
+    "country_id": 3,
+    "name": "Santa María Chiquimula"
+  },
+  {
+    "id": 606,
+    "state_id": 43,
+    "country_id": 3,
+    "name": "Totonicapán"
+  },
+  {
+    "id": 607,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "Cabañas"
+  },
+  {
+    "id": 608,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "Estanzuela"
+  },
+  {
+    "id": 609,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "Gualán"
+  },
+  {
+    "id": 610,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "Huité"
+  },
+  {
+    "id": 611,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "La Unión"
+  },
+  {
+    "id": 612,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "Río Hondo"
+  },
+  {
+    "id": 613,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "San Diego"
+  },
+  {
+    "id": 614,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "San Jorge"
+  },
+  {
+    "id": 615,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "Teculután"
+  },
+  {
+    "id": 616,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "Usumatlán"
+  },
+  {
+    "id": 617,
+    "state_id": 44,
+    "country_id": 3,
+    "name": "Zacapa"
+  },
+  {
+    "id": 618,
+    "state_id": 45,
+    "country_id": 4,
+    "name": "Arizona"
+  },
+  {
+    "id": 619,
+    "state_id": 45,
+    "country_id": 4,
+    "name": "El Porvenir"
+  },
+  {
+    "id": 620,
+    "state_id": 45,
+    "country_id": 4,
+    "name": "Esparta"
+  },
+  {
+    "id": 621,
+    "state_id": 45,
+    "country_id": 4,
+    "name": "Jutiapa"
+  },
+  {
+    "id": 622,
+    "state_id": 45,
+    "country_id": 4,
+    "name": "La Ceiba"
+  },
+  {
+    "id": 623,
+    "state_id": 45,
+    "country_id": 4,
+    "name": "La Masica"
+  },
+  {
+    "id": 624,
+    "state_id": 45,
+    "country_id": 4,
+    "name": "San Francisco"
+  },
+  {
+    "id": 625,
+    "state_id": 45,
+    "country_id": 4,
+    "name": "Tela"
+  },
+  {
+    "id": 626,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Apacilagua"
+  },
+  {
+    "id": 627,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Choluteca"
+  },
+  {
+    "id": 628,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Concepción de María"
+  },
+  {
+    "id": 629,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Duyure"
+  },
+  {
+    "id": 630,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "El Corpus"
+  },
+  {
+    "id": 631,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "El Triunfo"
+  },
+  {
+    "id": 632,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Marcovia"
+  },
+  {
+    "id": 633,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Morolica"
+  },
+  {
+    "id": 634,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Namasigüe"
+  },
+  {
+    "id": 635,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Orocuina"
+  },
+  {
+    "id": 636,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Pespire"
+  },
+  {
+    "id": 637,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "San Antonio de Flores"
+  },
+  {
+    "id": 638,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "San Isidro"
+  },
+  {
+    "id": 639,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "San José"
+  },
+  {
+    "id": 640,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "San Marcos de Colón"
+  },
+  {
+    "id": 641,
+    "state_id": 46,
+    "country_id": 4,
+    "name": "Santa Ana de Yusguare"
+  },
+  {
+    "id": 642,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Balfate"
+  },
+  {
+    "id": 643,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Bonito Oriental"
+  },
+  {
+    "id": 644,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Iriona"
+  },
+  {
+    "id": 645,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Limón"
+  },
+  {
+    "id": 646,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Sabá"
+  },
+  {
+    "id": 647,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Tocoa"
+  },
+  {
+    "id": 648,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Trujillo"
+  },
+  {
+    "id": 649,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Santa Fe"
+  },
+  {
+    "id": 650,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Santa Rosa de Aguan"
+  },
+  {
+    "id": 651,
+    "state_id": 47,
+    "country_id": 4,
+    "name": "Sonaguera"
+  },
+  {
+    "id": 652,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Comayagua"
+  },
+  {
+    "id": 653,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Siguatepeque"
+  },
+  {
+    "id": 654,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "El Rosario"
+  },
+  {
+    "id": 655,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "San Jerónimo"
+  },
+  {
+    "id": 656,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Esquías"
+  },
+  {
+    "id": 657,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "La Trinidad"
+  },
+  {
+    "id": 658,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Ojo de Agua"
+  },
+  {
+    "id": 659,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "San José de Comayagua"
+  },
+  {
+    "id": 660,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Minas de Oro"
+  },
+  {
+    "id": 661,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "San José del Potrero"
+  },
+  {
+    "id": 662,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "San Luís"
+  },
+  {
+    "id": 663,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Taulabé"
+  },
+  {
+    "id": 664,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Meámbar"
+  },
+  {
+    "id": 665,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "La Libertad"
+  },
+  {
+    "id": 666,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Las Lajas"
+  },
+  {
+    "id": 667,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Humuya"
+  },
+  {
+    "id": 668,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Ajuterique"
+  },
+  {
+    "id": 669,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Lejamaní"
+  },
+  {
+    "id": 670,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Lamaní"
+  },
+  {
+    "id": 671,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "Villa de San Antonio"
+  },
+  {
+    "id": 672,
+    "state_id": 48,
+    "country_id": 4,
+    "name": "San Sebastián"
+  },
+  {
+    "id": 673,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Cabañas"
+  },
+  {
+    "id": 674,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Concepción"
+  },
+  {
+    "id": 675,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Copán Ruinas"
+  },
+  {
+    "id": 676,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Corquín"
+  },
+  {
+    "id": 677,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Cucuyagua"
+  },
+  {
+    "id": 678,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Dolores"
+  },
+  {
+    "id": 679,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Dulce Nombre"
+  },
+  {
+    "id": 680,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "El Paraíso"
+  },
+  {
+    "id": 681,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Florida"
+  },
+  {
+    "id": 682,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "La Jigua"
+  },
+  {
+    "id": 683,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "La Unión"
+  },
+  {
+    "id": 684,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Nueva Arcadia"
+  },
+  {
+    "id": 685,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "San Agustín"
+  },
+  {
+    "id": 686,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "San Antonio"
+  },
+  {
+    "id": 687,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "San Jerónimo"
+  },
+  {
+    "id": 688,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "San José"
+  },
+  {
+    "id": 689,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "San Juan de Opoa"
+  },
+  {
+    "id": 690,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "San Nicolás"
+  },
+  {
+    "id": 691,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "San Pedro"
+  },
+  {
+    "id": 692,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Santa Rita"
+  },
+  {
+    "id": 693,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Santa Rosa de Copán"
+  },
+  {
+    "id": 694,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Trinidad de Copán"
+  },
+  {
+    "id": 695,
+    "state_id": 49,
+    "country_id": 4,
+    "name": "Veracruz"
+  },
+  {
+    "id": 696,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "San Pedro Sula"
+  },
+  {
+    "id": 697,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "Choloma"
+  },
+  {
+    "id": 698,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "Puerto Cortés"
+  },
+  {
+    "id": 699,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "Villanueva"
+  },
+  {
+    "id": 700,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "Santa Cruz de Yojoa"
+  },
+  {
+    "id": 701,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "La Lima"
+  },
+  {
+    "id": 702,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "San Manuel"
+  },
+  {
+    "id": 703,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "Omoa"
+  },
+  {
+    "id": 704,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "Pimienta"
+  },
+  {
+    "id": 705,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "Potrerillos"
+  },
+  {
+    "id": 706,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "San Antonio de Cortés"
+  },
+  {
+    "id": 707,
+    "state_id": 50,
+    "country_id": 4,
+    "name": "San Francisco de Yojoa"
+  },
+  {
+    "id": 708,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Alauca"
+  },
+  {
+    "id": 709,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Danlí"
+  },
+  {
+    "id": 710,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "El Paraíso"
+  },
+  {
+    "id": 711,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Güinope"
+  },
+  {
+    "id": 712,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Jacaleapa"
+  },
+  {
+    "id": 713,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Liure"
+  },
+  {
+    "id": 714,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Morocelí"
+  },
+  {
+    "id": 715,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Oropolí"
+  },
+  {
+    "id": 716,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Potrerillos"
+  },
+  {
+    "id": 717,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "San Antonio de Flores"
+  },
+  {
+    "id": 718,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "San Lucas"
+  },
+  {
+    "id": 719,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "San Matías"
+  },
+  {
+    "id": 720,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Soledad"
+  },
+  {
+    "id": 721,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Teupasenti"
+  },
+  {
+    "id": 722,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Texiguat"
+  },
+  {
+    "id": 723,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Trojes"
+  },
+  {
+    "id": 724,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Vado Ancho"
+  },
+  {
+    "id": 725,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Yauyupe"
+  },
+  {
+    "id": 726,
+    "state_id": 51,
+    "country_id": 4,
+    "name": "Yuscarán"
+  },
+  {
+    "id": 727,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Distrito Central"
+  },
+  {
+    "id": 728,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Marale"
+  },
+  {
+    "id": 729,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "El Porvenir"
+  },
+  {
+    "id": 730,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "San Ignacio"
+  },
+  {
+    "id": 731,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Orica"
+  },
+  {
+    "id": 732,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Vallecillo"
+  },
+  {
+    "id": 733,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Cedros"
+  },
+  {
+    "id": 734,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Guaimaca"
+  },
+  {
+    "id": 735,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Talanga"
+  },
+  {
+    "id": 736,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "San Juan de Flores"
+  },
+  {
+    "id": 737,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Santa Lucia"
+  },
+  {
+    "id": 738,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Valle de Angeles"
+  },
+  {
+    "id": 739,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Villa de San Francisco"
+  },
+  {
+    "id": 740,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "San Antonio de Oriente"
+  },
+  {
+    "id": 741,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Tatumbla"
+  },
+  {
+    "id": 742,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Lepaterique"
+  },
+  {
+    "id": 743,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Ojojona"
+  },
+  {
+    "id": 744,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Santa Ana"
+  },
+  {
+    "id": 745,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "San Buenaventura"
+  },
+  {
+    "id": 746,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Maraita"
+  },
+  {
+    "id": 747,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Curaren"
+  },
+  {
+    "id": 748,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Reitoca"
+  },
+  {
+    "id": 749,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Sabanagrande"
+  },
+  {
+    "id": 750,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Nueva Armenia"
+  },
+  {
+    "id": 751,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "La Venta"
+  },
+  {
+    "id": 752,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "Alubaren"
+  },
+  {
+    "id": 753,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "San Miguelito"
+  },
+  {
+    "id": 754,
+    "state_id": 52,
+    "country_id": 4,
+    "name": "La Libertad"
+  },
+  {
+    "id": 755,
+    "state_id": 53,
+    "country_id": 4,
+    "name": "Ahuas"
+  },
+  {
+    "id": 756,
+    "state_id": 53,
+    "country_id": 4,
+    "name": "Brus Laguna"
+  },
+  {
+    "id": 757,
+    "state_id": 53,
+    "country_id": 4,
+    "name": "Juan Francisco Bulnes"
+  },
+  {
+    "id": 758,
+    "state_id": 53,
+    "country_id": 4,
+    "name": "Puerto Lempira"
+  },
+  {
+    "id": 759,
+    "state_id": 53,
+    "country_id": 4,
+    "name": "Ramón Villeda Morales"
+  },
+  {
+    "id": 760,
+    "state_id": 53,
+    "country_id": 4,
+    "name": "Wampusirpe"
+  },
+  {
+    "id": 761,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "La Esperanza"
+  },
+  {
+    "id": 762,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Camasca"
+  },
+  {
+    "id": 763,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Colomoncagua"
+  },
+  {
+    "id": 764,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Concepción|Concepción"
+  },
+  {
+    "id": 765,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Dolores|Dolores"
+  },
+  {
+    "id": 766,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Intibucá (municipio)|Intibucá"
+  },
+  {
+    "id": 767,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Jesús de Otoro"
+  },
+  {
+    "id": 768,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Magdalena|Magdalena"
+  },
+  {
+    "id": 769,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Masaguara"
+  },
+  {
+    "id": 770,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "San Antonio"
+  },
+  {
+    "id": 771,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "San Isidro"
+  },
+  {
+    "id": 772,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "San Juan"
+  },
+  {
+    "id": 773,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "San Marcos de la Sierra"
+  },
+  {
+    "id": 774,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "San Miguel Guancapla"
+  },
+  {
+    "id": 775,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Santa Lucía (Intibucá)|Santa Lucía"
+  },
+  {
+    "id": 776,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "Yamaranguila"
+  },
+  {
+    "id": 777,
+    "state_id": 54,
+    "country_id": 4,
+    "name": "San Francisco de Opalaca"
+  },
+  {
+    "id": 778,
+    "state_id": 55,
+    "country_id": 4,
+    "name": "Roatán"
+  },
+  {
+    "id": 779,
+    "state_id": 55,
+    "country_id": 4,
+    "name": "Guanaja"
+  },
+  {
+    "id": 780,
+    "state_id": 55,
+    "country_id": 4,
+    "name": "José Santos Guardiola"
+  },
+  {
+    "id": 781,
+    "state_id": 55,
+    "country_id": 4,
+    "name": "Utila"
+  },
+  {
+    "id": 782,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Aguanqueterique"
+  },
+  {
+    "id": 783,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Cabañas"
+  },
+  {
+    "id": 784,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Cane"
+  },
+  {
+    "id": 785,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Chinacla"
+  },
+  {
+    "id": 786,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Guajiquiro"
+  },
+  {
+    "id": 787,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Lauterique"
+  },
+  {
+    "id": 788,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Marcala"
+  },
+  {
+    "id": 789,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Mercedes de Oriente"
+  },
+  {
+    "id": 790,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Opatoro"
+  },
+  {
+    "id": 791,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Antonio del Norte"
+  },
+  {
+    "id": 792,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San José"
+  },
+  {
+    "id": 793,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Juan"
+  },
+  {
+    "id": 794,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "San Pedro de Tutule"
+  },
+  {
+    "id": 795,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Santa Ana"
+  },
+  {
+    "id": 796,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Santa Elena"
+  },
+  {
+    "id": 797,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Santa María"
+  },
+  {
+    "id": 798,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Santiago de Puringla"
+  },
+  {
+    "id": 799,
+    "state_id": 6,
+    "country_id": 2,
+    "name": "Yarula"
+  },
+  {
+    "id": 800,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Gracias"
+  },
+  {
+    "id": 801,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Belén"
+  },
+  {
+    "id": 802,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Candelaria"
+  },
+  {
+    "id": 803,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Cololaca"
+  },
+  {
+    "id": 804,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Erandique"
+  },
+  {
+    "id": 805,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Gualcince"
+  },
+  {
+    "id": 806,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Guarita"
+  },
+  {
+    "id": 807,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "La Campa"
+  },
+  {
+    "id": 808,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "La Iguala"
+  },
+  {
+    "id": 809,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Las Flores"
+  },
+  {
+    "id": 810,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "La Unión"
+  },
+  {
+    "id": 811,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "La Virtud"
+  },
+  {
+    "id": 812,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Lepaera"
+  },
+  {
+    "id": 813,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Mapulaca"
+  },
+  {
+    "id": 814,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Piraera"
+  },
+  {
+    "id": 815,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "San Andrés"
+  },
+  {
+    "id": 816,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "San Francisco"
+  },
+  {
+    "id": 817,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "San Juan Guarita"
+  },
+  {
+    "id": 818,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "San Manuel Colohete"
+  },
+  {
+    "id": 819,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "San Rafael"
+  },
+  {
+    "id": 820,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "San Sebastián"
+  },
+  {
+    "id": 821,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Santa Cruz"
+  },
+  {
+    "id": 822,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Talgua"
+  },
+  {
+    "id": 823,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Tambla"
+  },
+  {
+    "id": 824,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Tomalá"
+  },
+  {
+    "id": 825,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Valladolid"
+  },
+  {
+    "id": 826,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "Virginia"
+  },
+  {
+    "id": 827,
+    "state_id": 57,
+    "country_id": 4,
+    "name": "San Marcos de Caiquín"
+  },
+  {
+    "id": 828,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Ocotepeque"
+  },
+  {
+    "id": 829,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Belén Gualcho"
+  },
+  {
+    "id": 830,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Concepción"
+  },
+  {
+    "id": 831,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Dolores Merendón"
+  },
+  {
+    "id": 832,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Fraternidad"
+  },
+  {
+    "id": 833,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "La Encarnación"
+  },
+  {
+    "id": 834,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "La Labor"
+  },
+  {
+    "id": 835,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Lucerna"
+  },
+  {
+    "id": 836,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Mercedes"
+  },
+  {
+    "id": 837,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "San Fernando"
+  },
+  {
+    "id": 838,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "San Francisco del Valle"
+  },
+  {
+    "id": 839,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "San Jorge"
+  },
+  {
+    "id": 840,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "San Marcos"
+  },
+  {
+    "id": 841,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Santa Fe"
+  },
+  {
+    "id": 842,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Sensenti"
+  },
+  {
+    "id": 843,
+    "state_id": 58,
+    "country_id": 4,
+    "name": "Sinuapa"
+  },
+  {
+    "id": 844,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Campamento"
+  },
+  {
+    "id": 845,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Catacamas"
+  },
+  {
+    "id": 846,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Concordia"
+  },
+  {
+    "id": 847,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Dulce Nombre de Culmi"
+  },
+  {
+    "id": 848,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "El Rosario"
+  },
+  {
+    "id": 849,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Esquipulas del Norte"
+  },
+  {
+    "id": 850,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Gualaco"
+  },
+  {
+    "id": 851,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Guarizama"
+  },
+  {
+    "id": 852,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Guata"
+  },
+  {
+    "id": 853,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Guayape"
+  },
+  {
+    "id": 854,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Jano"
+  },
+  {
+    "id": 855,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Juticalpa"
+  },
+  {
+    "id": 856,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "La Unión"
+  },
+  {
+    "id": 857,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Mangulile"
+  },
+  {
+    "id": 858,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Manto"
+  },
+  {
+    "id": 859,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Patuca"
+  },
+  {
+    "id": 860,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Salama"
+  },
+  {
+    "id": 861,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "San Esteban"
+  },
+  {
+    "id": 862,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "San Francisco de Becerra"
+  },
+  {
+    "id": 863,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "San Francisco de la Paz"
+  },
+  {
+    "id": 864,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Santa María del Real"
+  },
+  {
+    "id": 865,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Silca"
+  },
+  {
+    "id": 866,
+    "state_id": 59,
+    "country_id": 4,
+    "name": "Yocon"
+  },
+  {
+    "id": 867,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Arada"
+  },
+  {
+    "id": 868,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Atima"
+  },
+  {
+    "id": 869,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Azacualpa"
+  },
+  {
+    "id": 870,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Ceguaca"
+  },
+  {
+    "id": 871,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Chinda"
+  },
+  {
+    "id": 872,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Concepción del Norte"
+  },
+  {
+    "id": 873,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Concepción del Sur"
+  },
+  {
+    "id": 874,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "El Nispero"
+  },
+  {
+    "id": 875,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Gualala"
+  },
+  {
+    "id": 876,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Ilama"
+  },
+  {
+    "id": 877,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Las Vegas"
+  },
+  {
+    "id": 878,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Macuelizo"
+  },
+  {
+    "id": 879,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Naranjito"
+  },
+  {
+    "id": 880,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Nueva Frontera"
+  },
+  {
+    "id": 881,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Nuevo Celilac"
+  },
+  {
+    "id": 882,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Petoa"
+  },
+  {
+    "id": 883,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Protección"
+  },
+  {
+    "id": 884,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Quimistán"
+  },
+  {
+    "id": 885,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "San Francisco de Ojuera"
+  },
+  {
+    "id": 886,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "San José de Colinas"
+  },
+  {
+    "id": 887,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "San Luis"
+  },
+  {
+    "id": 888,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "San Marcos"
+  },
+  {
+    "id": 889,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "San Nicolás"
+  },
+  {
+    "id": 890,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "San Pedro Zacapa"
+  },
+  {
+    "id": 891,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Santa Bárbara"
+  },
+  {
+    "id": 892,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Santa Rita"
+  },
+  {
+    "id": 893,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "San Vicente Centenario"
+  },
+  {
+    "id": 894,
+    "state_id": 60,
+    "country_id": 4,
+    "name": "Trinidad"
+  },
+  {
+    "id": 895,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "Nacaome"
+  },
+  {
+    "id": 896,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "Alianza"
+  },
+  {
+    "id": 897,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "Amapala"
+  },
+  {
+    "id": 898,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "Aramecina"
+  },
+  {
+    "id": 899,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "Caridad"
+  },
+  {
+    "id": 900,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "Goascorán"
+  },
+  {
+    "id": 901,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "Langue"
+  },
+  {
+    "id": 902,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "San Francisco de Coray"
+  },
+  {
+    "id": 903,
+    "state_id": 61,
+    "country_id": 4,
+    "name": "San Lorenzo"
+  },
+  {
+    "id": 904,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Yoro"
+  },
+  {
+    "id": 905,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Arenal"
+  },
+  {
+    "id": 906,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "El Negrito,\"\""
+  },
+  {
+    "id": 907,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "El Progreso"
+  },
+  {
+    "id": 908,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Jocon"
+  },
+  {
+    "id": 909,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Morazan"
+  },
+  {
+    "id": 910,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Olanchito"
+  },
+  {
+    "id": 911,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Santa Rita"
+  },
+  {
+    "id": 912,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Sulaco"
+  },
+  {
+    "id": 913,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Victoria"
+  },
+  {
+    "id": 914,
+    "state_id": 62,
+    "country_id": 4,
+    "name": "Yorito"
+  },
+  {
+    "id": 915,
+    "state_id": 78,
+    "country_id": 5,
+    "name": "Bilwi"
+  },
+  {
+    "id": 916,
+    "state_id": 78,
+    "country_id": 5,
+    "name": "Bonanza"
+  },
+  {
+    "id": 917,
+    "state_id": 78,
+    "country_id": 5,
+    "name": "Mulukukú"
+  },
+  {
+    "id": 918,
+    "state_id": 78,
+    "country_id": 5,
+    "name": "Prinzapolka"
+  },
+  {
+    "id": 919,
+    "state_id": 78,
+    "country_id": 5,
+    "name": "Rosita"
+  },
+  {
+    "id": 920,
+    "state_id": 78,
+    "country_id": 5,
+    "name": "Siuna"
+  },
+  {
+    "id": 921,
+    "state_id": 78,
+    "country_id": 5,
+    "name": "Waslala"
+  },
+  {
+    "id": 922,
+    "state_id": 78,
+    "country_id": 5,
+    "name": "Waspán"
+  },
+  {
+    "id": 923,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "Corn Island"
+  },
+  {
+    "id": 924,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "Desembocadura de Río Grande"
+  },
+  {
+    "id": 925,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "El Ayote"
+  },
+  {
+    "id": 926,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "El Tortuguero"
+  },
+  {
+    "id": 927,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "Kukra Hill"
+  },
+  {
+    "id": 928,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "La Cruz de Río Grande"
+  },
+  {
+    "id": 929,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "Laguna de Perlas"
+  },
+  {
+    "id": 930,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "Muelle de los Bueyes"
+  },
+  {
+    "id": 931,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "Nueva Guinea"
+  },
+  {
+    "id": 932,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "Paiwas"
+  },
+  {
+    "id": 933,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "El Rama"
+  },
+  {
+    "id": 934,
+    "state_id": 63,
+    "country_id": 5,
+    "name": "Boaco"
+  },
+  {
+    "id": 935,
+    "state_id": 63,
+    "country_id": 5,
+    "name": "Camoapa"
+  },
+  {
+    "id": 936,
+    "state_id": 63,
+    "country_id": 5,
+    "name": "San Lorenzo"
+  },
+  {
+    "id": 937,
+    "state_id": 63,
+    "country_id": 5,
+    "name": "San José de Los Remates"
+  },
+  {
+    "id": 938,
+    "state_id": 63,
+    "country_id": 5,
+    "name": "Santa Lucía"
+  },
+  {
+    "id": 939,
+    "state_id": 63,
+    "country_id": 5,
+    "name": "Teustepe"
+  },
+  {
+    "id": 940,
+    "state_id": 64,
+    "country_id": 5,
+    "name": "Diriamba"
+  },
+  {
+    "id": 941,
+    "state_id": 64,
+    "country_id": 5,
+    "name": "Dolores"
+  },
+  {
+    "id": 942,
+    "state_id": 64,
+    "country_id": 5,
+    "name": "El Rosario"
+  },
+  {
+    "id": 943,
+    "state_id": 64,
+    "country_id": 5,
+    "name": "Jinotepe"
+  },
+  {
+    "id": 944,
+    "state_id": 64,
+    "country_id": 5,
+    "name": "La Conquista"
+  },
+  {
+    "id": 945,
+    "state_id": 64,
+    "country_id": 5,
+    "name": "La Paz de Oriente"
+  },
+  {
+    "id": 946,
+    "state_id": 64,
+    "country_id": 5,
+    "name": "San Marcos"
+  },
+  {
+    "id": 947,
+    "state_id": 64,
+    "country_id": 5,
+    "name": "Santa TerSV"
+  },
+  {
+    "id": 948,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Chichigalpa"
+  },
+  {
+    "id": 949,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Chinandega"
+  },
+  {
+    "id": 950,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Cinco Pinos"
+  },
+  {
+    "id": 951,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Corinto"
+  },
+  {
+    "id": 952,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "El Realejo"
+  },
+  {
+    "id": 953,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "El Viejo"
+  },
+  {
+    "id": 954,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Posoltega"
+  },
+  {
+    "id": 955,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "San Francisco del Norte"
+  },
+  {
+    "id": 956,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "San Pedro del Norte"
+  },
+  {
+    "id": 957,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Santo Tomás del Norte"
+  },
+  {
+    "id": 958,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Somotillo"
+  },
+  {
+    "id": 959,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Puerto Morazán"
+  },
+  {
+    "id": 960,
+    "state_id": 65,
+    "country_id": 5,
+    "name": "Villanueva"
+  },
+  {
+    "id": 961,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "Acoyapa"
+  },
+  {
+    "id": 962,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "Comalapa"
+  },
+  {
+    "id": 963,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "Cuapa"
+  },
+  {
+    "id": 964,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "El Coral"
+  },
+  {
+    "id": 965,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "Juigalpa"
+  },
+  {
+    "id": 966,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "La Libertad"
+  },
+  {
+    "id": 967,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "San Pedro de Lóvago"
+  },
+  {
+    "id": 968,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "Santo Domingo"
+  },
+  {
+    "id": 969,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "Santo Tomás"
+  },
+  {
+    "id": 970,
+    "state_id": 66,
+    "country_id": 5,
+    "name": "Villa Sandino"
+  },
+  {
+    "id": 971,
+    "state_id": 67,
+    "country_id": 5,
+    "name": "Condega"
+  },
+  {
+    "id": 972,
+    "state_id": 67,
+    "country_id": 5,
+    "name": "Estelí"
+  },
+  {
+    "id": 973,
+    "state_id": 67,
+    "country_id": 5,
+    "name": "La Trinidad"
+  },
+  {
+    "id": 974,
+    "state_id": 67,
+    "country_id": 5,
+    "name": "Pueblo Nuevo"
+  },
+  {
+    "id": 975,
+    "state_id": 67,
+    "country_id": 5,
+    "name": "San Juan de Limay"
+  },
+  {
+    "id": 976,
+    "state_id": 67,
+    "country_id": 5,
+    "name": "San Nicolás"
+  },
+  {
+    "id": 977,
+    "state_id": 68,
+    "country_id": 5,
+    "name": "Diriá"
+  },
+  {
+    "id": 978,
+    "state_id": 68,
+    "country_id": 5,
+    "name": "Diriomo"
+  },
+  {
+    "id": 979,
+    "state_id": 68,
+    "country_id": 5,
+    "name": "Granada"
+  },
+  {
+    "id": 980,
+    "state_id": 68,
+    "country_id": 5,
+    "name": "Nandaime"
+  },
+  {
+    "id": 981,
+    "state_id": 69,
+    "country_id": 5,
+    "name": "El Cuá"
+  },
+  {
+    "id": 982,
+    "state_id": 69,
+    "country_id": 5,
+    "name": "Jinotega"
+  },
+  {
+    "id": 983,
+    "state_id": 69,
+    "country_id": 5,
+    "name": "La Concordia"
+  },
+  {
+    "id": 984,
+    "state_id": 69,
+    "country_id": 5,
+    "name": "San José de Bocay"
+  },
+  {
+    "id": 985,
+    "state_id": 69,
+    "country_id": 5,
+    "name": "San Rafael del Norte"
+  },
+  {
+    "id": 986,
+    "state_id": 69,
+    "country_id": 5,
+    "name": "San Sebastián de Yalí"
+  },
+  {
+    "id": 987,
+    "state_id": 69,
+    "country_id": 5,
+    "name": "Santa María de Pantasma"
+  },
+  {
+    "id": 988,
+    "state_id": 69,
+    "country_id": 5,
+    "name": "Wiwilí"
+  },
+  {
+    "id": 989,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "Achuapa"
+  },
+  {
+    "id": 990,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "El Jicaral"
+  },
+  {
+    "id": 991,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "El Sauce"
+  },
+  {
+    "id": 992,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "La Paz Centro"
+  },
+  {
+    "id": 993,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "Larreynaga"
+  },
+  {
+    "id": 994,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "León"
+  },
+  {
+    "id": 995,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "Nagarote"
+  },
+  {
+    "id": 996,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "Quezalguaque"
+  },
+  {
+    "id": 997,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "Santa Rosa del Peñón"
+  },
+  {
+    "id": 998,
+    "state_id": 70,
+    "country_id": 5,
+    "name": "Telica"
+  },
+  {
+    "id": 999,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "Las Sabanas"
+  },
+  {
+    "id": 1000,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "Palacagüina"
+  },
+  {
+    "id": 1001,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "San José de Cusmapa"
+  },
+  {
+    "id": 1002,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "San Juan de Río Coco"
+  },
+  {
+    "id": 1003,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "San Lucas"
+  },
+  {
+    "id": 1004,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "Somoto"
+  },
+  {
+    "id": 1005,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "Telpaneca"
+  },
+  {
+    "id": 1006,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "Totogalpa"
+  },
+  {
+    "id": 1007,
+    "state_id": 71,
+    "country_id": 5,
+    "name": "Yalagüina"
+  },
+  {
+    "id": 1008,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "Ciudad Sandino"
+  },
+  {
+    "id": 1009,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "El Crucero"
+  },
+  {
+    "id": 1010,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "Managua"
+  },
+  {
+    "id": 1011,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "Mateare"
+  },
+  {
+    "id": 1012,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "San Francisco Libre"
+  },
+  {
+    "id": 1013,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "San Rafael del Sur"
+  },
+  {
+    "id": 1014,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "Ticuantepe"
+  },
+  {
+    "id": 1015,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "Tipitapa"
+  },
+  {
+    "id": 1016,
+    "state_id": 72,
+    "country_id": 5,
+    "name": "Villa El Carmen"
+  },
+  {
+    "id": 1017,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "Catarina"
+  },
+  {
+    "id": 1018,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "La Concepción"
+  },
+  {
+    "id": 1019,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "Masatepe"
+  },
+  {
+    "id": 1020,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "Masaya"
+  },
+  {
+    "id": 1021,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "Nandasmo"
+  },
+  {
+    "id": 1022,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "Nindirí"
+  },
+  {
+    "id": 1023,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "Niquinohomo"
+  },
+  {
+    "id": 1024,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "San Juan de Oriente"
+  },
+  {
+    "id": 1025,
+    "state_id": 73,
+    "country_id": 5,
+    "name": "Tisma"
+  },
+  {
+    "id": 1026,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Ciudad Darío"
+  },
+  {
+    "id": 1027,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "El Tuma - La Dalia"
+  },
+  {
+    "id": 1028,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Esquipulas"
+  },
+  {
+    "id": 1029,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Matagalpa"
+  },
+  {
+    "id": 1030,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Matiguás"
+  },
+  {
+    "id": 1031,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Muy Muy"
+  },
+  {
+    "id": 1032,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Rancho Grande"
+  },
+  {
+    "id": 1033,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Río Blanco"
+  },
+  {
+    "id": 1034,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "San Dionisio"
+  },
+  {
+    "id": 1035,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "San Isidro"
+  },
+  {
+    "id": 1036,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "San Ramón"
+  },
+  {
+    "id": 1037,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Sébaco"
+  },
+  {
+    "id": 1038,
+    "state_id": 74,
+    "country_id": 5,
+    "name": "Terrabona"
+  },
+  {
+    "id": 1039,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Ciudad Antigua"
+  },
+  {
+    "id": 1040,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Dipilto"
+  },
+  {
+    "id": 1041,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "El Jícaro"
+  },
+  {
+    "id": 1042,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Güigüilí"
+  },
+  {
+    "id": 1043,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Jalapa"
+  },
+  {
+    "id": 1044,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Macuelizo"
+  },
+  {
+    "id": 1045,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Mozonte"
+  },
+  {
+    "id": 1046,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Murra"
+  },
+  {
+    "id": 1047,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Ocotal"
+  },
+  {
+    "id": 1048,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Quilalí"
+  },
+  {
+    "id": 1049,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "San Fernando"
+  },
+  {
+    "id": 1050,
+    "state_id": 75,
+    "country_id": 5,
+    "name": "Santa María"
+  },
+  {
+    "id": 1051,
+    "state_id": 76,
+    "country_id": 5,
+    "name": "El Almendro"
+  },
+  {
+    "id": 1052,
+    "state_id": 76,
+    "country_id": 5,
+    "name": "El Castillo"
+  },
+  {
+    "id": 1053,
+    "state_id": 76,
+    "country_id": 5,
+    "name": "Morrito"
+  },
+  {
+    "id": 1054,
+    "state_id": 76,
+    "country_id": 5,
+    "name": "San Carlos"
+  },
+  {
+    "id": 1055,
+    "state_id": 76,
+    "country_id": 5,
+    "name": "San Juan del Norte"
+  },
+  {
+    "id": 1056,
+    "state_id": 76,
+    "country_id": 5,
+    "name": "San Miguelito"
+  },
+  {
+    "id": 1057,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "Altagracia"
+  },
+  {
+    "id": 1058,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "Belén"
+  },
+  {
+    "id": 1059,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "Buenos Aires"
+  },
+  {
+    "id": 1060,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "Cárdenas"
+  },
+  {
+    "id": 1061,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "Moyogalpa"
+  },
+  {
+    "id": 1062,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "Potosí"
+  },
+  {
+    "id": 1063,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "Rivas"
+  },
+  {
+    "id": 1064,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "San Jorge"
+  },
+  {
+    "id": 1065,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "San Juan del Sur"
+  },
+  {
+    "id": 1066,
+    "state_id": 77,
+    "country_id": 5,
+    "name": "Tola"
+  },
+  {
+    "id": 1067,
+    "state_id": 79,
+    "country_id": 5,
+    "name": "Bluefields"
+  }
+]

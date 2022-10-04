@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\EnrollmentAccepted;
+use App\Notifications\EnrolledAccepted as Notification;
+
+class SendEnrollmentAcceptedNotification
+{
+    /**
+     * Handle the event.
+     * @param  \App\Events\EnrollmentAccepted  $event
+     * @return void
+     */
+    public function handle(EnrollmentAccepted $event)
+    {
+        $enrollment = $event->getEnrollment()->load([
+            'candidate.user', 'opportunity',
+        ]);
+
+        $candidate_user = data_get($enrollment, 'candidate.user');
+        $opportunity = data_get($enrollment, 'opportunity');
+
+        if ($candidate_user && $enrollment->is_accepted && $opportunity) {
+            $candidate_user->notify(new Notification($enrollment));
+        }
+    }
+}

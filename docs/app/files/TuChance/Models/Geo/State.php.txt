@@ -1,0 +1,38 @@
+<?php
+
+namespace App\TuChance\Models\Geo;
+
+use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
+
+class State extends Model
+{
+    use SearchableTrait;
+
+    /**
+     * The connection name for the model.
+     *
+     * @var string
+     */
+    protected $connection = 'geographic';
+
+    /**
+     * Searchable rules.
+     * @var array
+     */
+    protected $searchable = [
+        'columns' => [
+            'name' => 8,
+        ]
+    ];
+
+    /**
+     * Cities in this state
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
+}
+

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 2,
+    "abbr": "ESA",
+    "domain": "tuchance.org",
+    "code": "sv",
+    "name": "El Salvador"
+  },
+  {
+    "id": 3,
+    "abbr": "GUA",
+    "domain": "tuchance.gt",
+    "code": "gt",
+    "name": "Guatemala"
+  },
+  {
+    "id": 4,
+    "abbr": "HON",
+    "domain": "tuchance.hn",
+    "code": "hn",
+    "name": "Honduras"
+  },
+  {
+    "id": 5,
+    "abbr": "NIC",
+    "domain": "tuchance.ni",
+    "code": "ni",
+    "name": "Nicaragua"
+  }
+]

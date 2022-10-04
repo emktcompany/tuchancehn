@@ -1,0 +1,28 @@
+<?php
+
+namespace App\TuChance\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Partner extends Model
+{
+    use SoftDeletes;
+
+    /**
+     * Attributes that are mass assignable
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'is_active', 'type', 'link',
+    ];
+
+    /**
+     * Image as asset
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function image()
+    {
+        return $this->morphOne(Asset::class, 'assetable');
+    }
+}

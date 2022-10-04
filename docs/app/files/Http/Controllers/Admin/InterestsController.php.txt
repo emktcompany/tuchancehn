@@ -1,0 +1,105 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Interests\CreateRequest;
+use App\Http\Requests\Admin\Interests\UpdateRequest;
+use App\Http\Resources\InterestResource;
+use App\TuChance\Models\Interest;
+use Illuminate\Http\Request;
+
+class InterestsController extends Controller
+{
+    /**
+     * Interest model
+     * @var \App\TuChance\Models\Interest
+     */
+    protected $interests;
+
+    /**
+     * Create a new controller instance
+     * @param  \App\TuChance\Models\Interest $interests
+     * @return void
+     */
+    public function __construct(Interest $interests)
+    {
+        $this->interests = $interests;
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function index(Request $request)
+    {
+        $query = $this->interests->newQuery();;
+
+        if ($request->has('term')) {
+            $query->search($request->get('term'), null, true, true);
+        } else {
+            $query->orderBy('name');
+        }
+
+        $interests = $query->paginate(10);
+
+        return InterestResource::collection($interests);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * @param  \App\Http\Requests\Admin\Interests\CreateRequest  $request
+     * @return \App\Http\Resources\InterestResource
+     */
+    public function store(CreateRequest $request)
+    {
+        $interest = $this->interests->newInstance();
+        $interest->fill($request->all());
+        $interest->save();
+
+        return new InterestResource($interest->fresh());
+    }
+
+    /**
+     * Display the specified resource.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int                       $id
+     * @return \App\Http\Resources\InterestResource
+     */
+    public function show(Request $request, $id)
+    {
+        $interest = $this->interests->findOrFail($id);
+        return new InterestResource($interest);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     * @param  \App\Http\Requests\Admin\Interests\UpdateRequest  $request
+     * @param  int                                             $id
+     * @return \App\Http\Resources\InterestResource
+     */
+    public function update(UpdateRequest $request, $id)
+    {
+        $interest = $this->interests->findOrFail($id);
+        $interest->fill($request->all());
+        $interest->save();
+
+        return new InterestResource($interest->fresh());
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int                       $id
+     * @return \App\Http\Resources\InterestResource
+     */
+    public function destroy(Request $request, $id)
+    {
+        $interest = $this->interests->findOrFail($id);
+        $interest->delete();
+
+        return new InterestResource($interest);
+    }
+}
+

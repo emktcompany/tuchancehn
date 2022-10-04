@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Notifications;
+
+use App\TuChance\Models\Enrollment;
+
+class CandidateApplied extends BaseNotification
+{
+    /**
+     * The folder the messages for this notifications are stored
+     * @var string
+     */
+    protected $translations = 'enrollment/bidder';
+
+    /**
+     * Enrollment accepted
+     * @var \App\TuChance\Models\Enrollment
+     */
+    protected $enrollment;
+
+    /**
+     * Create a new event instance.
+     * @param  \App\TuChance\Models\Enrollment $enrollment
+     * @return void
+     */
+    public function __construct(Enrollment $enrollment)
+    {
+        $this->enrollment = $enrollment;
+    }
+
+    /**
+     * Append bidder data to mail message
+     * @param  \Illuminate\Notifications\Messages\MailMessage $message
+     * @param  mixed                                          $notifiable
+     * @return void
+     */
+    public function toMailData($message, $notifiable)
+    {
+        $message->line("Oportunidad: {$this->enrollment->opportunity->name}");
+        $message->line("Candidato: {$this->enrollment->candidate->user->name}");
+        $message->line("Correo electrónico: {$this->enrollment->candidate->user->email}");
+    }
+}

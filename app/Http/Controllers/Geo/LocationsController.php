@@ -1,0 +1,106 @@
+<?php
+
+namespace App\Http\Controllers\Geo;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Geo\CityResource;
+use App\Http\Resources\Geo\CountryResource;
+use App\Http\Resources\Geo\StateResource;
+use App\TuChance\Models\Geo\City;
+use App\TuChance\Models\Geo\Country;
+use App\TuChance\Models\Geo\State;
+use Illuminate\Http\Request;
+
+class LocationsController extends Controller
+{
+    /**
+     * @var \Illuminate\Http\Request
+     */
+    protected $request;
+
+    /**
+     * New controller instance
+     * @param \Illuminate\Http\Request  $request
+     */
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
+    /**
+     * Countries
+     * @param  \App\TuChance\Models\Geo\Country $countries
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function countries(Country $countries)
+    {
+        $query = $countries->orderBy('name');
+
+        if (
+            $this->request->has('term') &&
+            $term = $this->request->get('term')
+        ) {
+            $query->search($term, null, true, true);
+        }
+
+        $rows = $query->paginate(10);
+
+        return CountryResource::collection($rows);
+    }
+
+    /**
+     * Countries
+     * @param  \App\TuChance\Models\Geo\State $states
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function states(State $states)
+    {
+        $query = $states->orderBy('name');
+
+        if (
+            $this->request->has('term') &&
+            $term = $this->request->get('term')
+        ) {
+            $query->search($term, null, true, true);
+        }
+
+        if (
+            $this->request->has('country_id') &&
+            $country_id = $this->request->get('country_id')
+        ) {
+            $query->where('country_id', $country_id);
+        }
+
+        $rows = $query->paginate(10);
+
+        return StateResource::collection($rows);
+    }
+
+    /**
+     * Countries
+     * @param  \App\TuChance\Models\Geo\City $countries
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function cities(City $cities)
+    {
+        $query = $cities->orderBy('name');
+
+        if (
+            $this->request->has('term') &&
+            $term = $this->request->get('term')
+        ) {
+            $query->search($term, null, true, true);
+        }
+
+        if (
+            $this->request->has('state_id') &&
+            $state_id = $this->request->get('state_id')
+        ) {
+            $query->where('state_id', $state_id);
+        }
+
+        $rows = $query->paginate(10);
+
+        return CityResource::collection($rows);
+    }
+}

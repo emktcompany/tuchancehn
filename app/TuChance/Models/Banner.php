@@ -1,0 +1,39 @@
+<?php
+
+namespace App\TuChance\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Nicolaslopezj\Searchable\SearchableTrait;
+
+class Banner extends Model
+{
+    use SoftDeletes, SearchableTrait;
+
+    /**
+     * Attributes that are mass assignable
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'is_active', 'link', 'text', 'type', 'link_text',
+    ];
+
+    /**
+     * Searchable rules.
+     * @var array
+     */
+    protected $searchable = [
+        'columns' => [
+            'name'        => 10,
+        ],
+    ];
+
+    /**
+     * Image as asset
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function image()
+    {
+        return $this->morphOne(Asset::class, 'assetable');
+    }
+}

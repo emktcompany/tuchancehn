@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\OpportunityCreated;
+
+class UpdateOpportunityCounters
+{
+    /**
+     * Handle the event.
+     *
+     * @param  OpportunityCreated  $event
+     * @return void
+     */
+    public function handle(OpportunityCreated $event)
+    {
+        $opportunity = $event->getOpportunity();
+
+        if ($bidder = $opportunity->bidder) {
+            $bidder->opportunity_count = $bidder->opportunities()->count();
+            $bidder->timestamps        = false;
+            $bidder->save();
+        }
+
+        if ($country = $opportunity->country) {
+            $country->opportunity_count = $opportunity
+                ->whereHas('bidder', function ($query) use ($country) {
+                    $query->byCountry($country->code);
+                })
+                ->count();
+
+            $country->timestamps = false;
+            $country->save();
+        }
+    }
+}

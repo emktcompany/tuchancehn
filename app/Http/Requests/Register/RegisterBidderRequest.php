@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Requests\Register;
+
+use App\Http\Requests\Account\UpdateBidderRequest;
+
+class RegisterBidderRequest extends UpdateBidderRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return !auth()->check();
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $rules = parent::rules();
+
+        $rules['password'][] = 'required';
+
+        return array_merge_recursive($rules, [
+            'network'      => [
+                'required_with:access_token', 'in:facebook,google',
+            ],
+            'access_token' => ['required_with:network'],
+            'bidder'       => ['required', 'array'],
+            'bidder.web'   => ['url', 'nullable'],
+            'bidder.name'  => ['required', 'string'],
+        ]);
+    }
+}

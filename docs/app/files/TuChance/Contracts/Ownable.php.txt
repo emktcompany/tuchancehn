@@ -1,0 +1,38 @@
+<?php
+
+namespace App\TuChance\Contracts;
+
+use Illuminate\Database\Eloquent\Builder;
+
+interface Ownable
+{
+    /**
+     * User that created the resource
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user();
+
+    /**
+     * Filter query by user
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @param  mixed                                 $user
+     * @return void
+     */
+    public function scopeByUser(Builder $query, $user);
+
+    /**
+     * Wheter the current model instance belongs to the authenticated user
+     * @param  string|null  $guard
+     * @return boolean
+     */
+    public function isMine($guard = null);
+
+    /**
+     * Filter query to only include resources by authenticated user
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @param  string|null                           $guard
+     * @return void
+     */
+    public function scopeMine(Builder $query, $guard = null);
+}
+

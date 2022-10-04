@@ -1,0 +1,62 @@
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Database\Connection;
+
+class RebuildReports extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'tuchance:reports:rebuild';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Command description';
+
+    /**
+     * Database connection
+     * @var \Illuminate\Database\Connection
+     */
+    protected $db;
+
+    /**
+     * New command instance
+     * @param \Illuminate\Database\Connection $db
+     */
+    public function __construct(Connection $db)
+    {
+        $this->db = $db;
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $names = collect(glob(base_path('database/migrations/reports/*.php')))
+            ->map(function ($path) {
+                return pathinfo($path, PATHINFO_FILENAME);
+            });
+
+        $this->db->table('migrations')
+            ->whereIn('migration', $names->all())
+            ->delete();
+
+        $this->call('migrate', [
+            '--force',
+            '--path' => 'database/migrations/reports',
+        ]);
+    }
+}
+

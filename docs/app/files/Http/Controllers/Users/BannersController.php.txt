@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers\Users;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\BannerResource;
+use App\TuChance\Models\Banner;
+
+class BannersController extends Controller
+{
+    /**
+     * All countries.
+     * @param  \App\TuChance\Models\Banner $banners
+     * @return void
+     */
+    public function index(Banner $banners)
+    {
+        $query = $banners->with('image')
+            ->has('image')
+            ->where('is_active', 1);
+
+        if (request()->has('type')) {
+            $query->where('type', request('type', 1));
+        }
+
+        $rows = $query->get();
+        return BannerResource::collection($rows);
+    }
+}
+

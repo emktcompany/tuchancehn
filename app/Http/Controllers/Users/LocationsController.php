@@ -1,0 +1,137 @@
+<?php
+
+namespace App\Http\Controllers\Users;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\CityResource;
+use App\Http\Resources\CountryResource;
+use App\Http\Resources\StateResource;
+use App\TuChance\Models\City;
+use App\TuChance\Models\Country;
+use App\TuChance\Models\State;
+use Illuminate\Http\Request;
+
+class LocationsController extends Controller
+{
+    /**
+     * @var \Illuminate\Http\Request
+     */
+    protected $request;
+
+    /**
+     * New controller instance
+     * @param \Illuminate\Http\Request  $request
+     */
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
+    /**
+     * All countries.
+     * @param  \App\TuChance\Models\Country $countries
+     * @return void
+     */
+    public function index(Country $countries)
+    {
+        $rows = $countries->whereNotNull('domain')
+            ->get();
+        $domain   = $this->request->getHost();
+        $location = geoip(env('CLIENT_REMOTE_ADDR') ?: $this->request->ip());
+
+        $current_location = $rows
+            ->filter(function ($country) use ($domain) {
+                return $country->domain == $domain;
+            })
+            ->pluck('code')
+            ->first();
+
+        return CountryResource::collection($rows)->additional([
+            'meta' => [
+                'default'  => $current_location ?: 'sv',
+                'location' => $location->toArray(),
+            ],
+        ]);
+    }
+
+    /**
+     * Countries
+     * @param  \App\TuChance\Models\Country $countries
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function countries(Country $countries)
+    {
+        $query = $countries->orderBy('name');
+
+        if (
+            $this->request->has('term') &&
+            $term = $this->request->get('term')
+        ) {
+            $query->search($term, null, true, true);
+        }
+
+        $rows = $query->get();
+
+        return CountryResource::collection($rows);
+    }
+
+    /**
+     * Countries
+     * @param  \App\TuChance\Models\State $states
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function states(State $states)
+    {
+        $query = $states->orderBy('name');
+
+        if (
+            $this->request->has('term') &&
+            $term = $this->request->get('term')
+        ) {
+            $query->search($term, null, true, true);
+        }
+
+        if (
+            $this->request->has('country_id') &&
+            $country_id = $this->request->get('country_id')
+        ) {
+            $query->where('country_id', $country_id);
+        } else {
+            $query->where('country_id', 0);
+        }
+
+        $rows = $query->get();
+
+        return StateResource::collection($rows);
+    }
+
+    /**
+     * Countries
+     * @param  \App\TuChance\Models\City $countries
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function cities(City $cities)
+    {
+        $query = $cities->orderBy('name');
+
+        if (
+            $this->request->has('term') &&
+            $term = $this->request->get('term')
+        ) {
+            $query->search($term, null, true, true);
+        }
+
+        if (
+            $this->request->has('state_id') &&
+            $state_id = $this->request->get('state_id')
+        ) {
+            $query->where('state_id', $state_id);
+        } else {
+            $query->where('state_id', 0);
+        }
+
+        $rows = $query->get();
+
+        return CityResource::collection($rows);
+    }
+}

@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Controllers\Users;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchPostsRequest;
+use App\Http\Resources\PostResource;
+use App\TuChance\Contracts\Repositories\Posts;
+
+class PostsController extends Controller
+{
+    /**
+     * Post model
+     * @var \App\TuChance\Contracts\Repositories\Posts
+     */
+    protected $posts;
+
+    /**
+     * Create a new controller instance
+     * @param  \App\TuChance\Contracts\Repositories\Posts $posts
+     * @return void
+     */
+    public function __construct(Posts $posts)
+    {
+        $this->posts = $posts;
+    }
+
+    /**
+     * Search posts
+     * @param  \App\Http\Requests\SearchPostsRequest $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function index(SearchPostsRequest $request)
+    {
+        return $this->posts->search($request);
+    }
+
+    /**
+     * Show bidder
+     * @param  int $id
+     * @return \App\Http\Resources\PostResource
+     */
+    public function show($id)
+    {
+        return $this->posts->find($id);
+    }
+}
+

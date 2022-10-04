@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\BidderCreated;
+
+class UpdateBidderCounters
+{
+    /**
+     * Handle the event.
+     * @param  BidderCreated  $event
+     * @return void
+     */
+    public function handle(BidderCreated $event)
+    {
+        $bidder  = $event->getBidder();
+        $country = $bidder->country;
+
+        $country->bidder_count = $bidder->byCountry($country->code)
+            ->count();
+        $country->timestamps = false;
+        $country->save();
+    }
+}
+

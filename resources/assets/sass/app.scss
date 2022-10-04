@@ -1,0 +1,40 @@
+@import "import/variables";
+
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
+@import "~flatpickr/dist/flatpickr.min.css";
+@import "~flatpickr/dist/themes/confetti.css";
+
+@import "~sass-mixins/mixins";
+@import "~animate-sass";
+
+@import "import/mixins";
+
+@import "tailwind/tailwind";
+@import "import/tooltip";
+@import "import/dot";
+@import "import/transitions";
+@import "import/home";
+@import "import/inner";
+
+.v-collapse-content {
+  max-height: 0;
+  transition: max-height .3s ease-out;
+  overflow: hidden;
+  padding: 0;
+}
+.v-collapse-content-end {
+  transition: max-height .3s ease-in;
+  max-height: 1000px;
+}
+
+.svg svg:not([width]) {
+  width: inherit;
+}
+.svg svg:not([height]) {
+  height: inherit;
+}
+
+
+.v-select .dropdown-menu li > a {
+  white-space: normal !important;
+}

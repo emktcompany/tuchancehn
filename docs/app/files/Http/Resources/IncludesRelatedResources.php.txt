@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Http\Resources;
+
+trait IncludesRelatedResources
+{
+    protected static $INCLUDE_REGEX =
+        '/^([a-z_]+(\.[a-z_]+)*)(,([a-z_]+(\.[a-z_]+)*))*$/';
+
+    public function parseIncludeParameter($request)
+    {
+        if (!$this->includesRelatedResources($request)) {
+            return [];
+        }
+
+        return explode(',', $request->get('include'));
+    }
+
+    public function includesRelatedResources($request)
+    {
+        return $request->has('include') &&
+            preg_match(static::$INCLUDE_REGEX, $request->get('include'));
+    }
+}
+

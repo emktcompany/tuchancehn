@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers\Users;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\SkillResource;
+use App\TuChance\Models\Skill;
+
+class SkillsController extends Controller
+{
+    /**
+     * All countries.
+     * @param  \App\TuChance\Models\Skill $skills
+     * @return void
+     */
+    public function index(Skill $skills)
+    {
+        $rows = $skills
+            ->orderBy('name')
+            ->get();
+        return SkillResource::collection($rows);
+    }
+}

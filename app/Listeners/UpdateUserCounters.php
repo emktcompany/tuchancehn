@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\UserRegistered;
+
+class UpdateUserCounters
+{
+    /**
+     * Handle the event.
+     *
+     * @param  UserRegistered  $event
+     * @return void
+     */
+    public function handle(UserRegistered $event)
+    {
+        $user    = $event->getUser();
+        $country = $user->country;
+
+        $country->user_count = $user->byCountry($country->code)
+            ->role('candidate', 'bidder')
+            ->count();
+        $country->user_bidder_count = $user->byCountry($country->code)
+            ->role('bidder')
+            ->count();
+        $country->user_candidate_count = $user->byCountry($country->code)
+            ->role('candidate')
+            ->count();
+        $country->timestamps = false;
+        $country->save();
+    }
+}

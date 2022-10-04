@@ -1,0 +1,106 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Jobs\CropImage;
+use App\TuChance\Models\Asset;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+
+trait UploadsAttachments
+{
+    /**
+     * Crop an image
+     * @param  mixed                    $model
+     * @param  string                   $relation
+     * @param  \Illuminate\Http\Request $request
+     * @param  string                   $kind
+     * @return \App\TuChance\Models\Asset|null
+     */
+    public function cropImage($model, $relation, Request $request, $kind = null)
+    {
+        $key  = "{$relation}_crop.file";
+        $file = $request->file($key);
+
+        if ($request->hasFile($key) && $file->isValid()) {
+            $folder = str_plural(snake_case(class_basename(get_class($model))));
+            $job    = new CropImage($file, $folder);
+            $crop   = (array) $request->get("{$relation}_crop", []);
+
+            if (!empty($crop)) {
+                $job->crop(
+                    $width  = (int) array_get($crop, 'width'),
+                    $height = (int) array_get($crop, 'height'),
+                    array_get($crop, 'x'),
+                    array_get($crop, 'y')
+                );
+            } else {
+                list($width, $height) = getimagesize($file->getRealPath());
+            }
+
+            $image = $model->$relation()->firstOrNew(compact('kind'));
+
+            $image->fill([
+                'original_filename' => $file->getClientOriginalName(),
+                'extension'         => $file->getClientOriginalExtension(),
+                'filesize'          => $file->getClientSize(),
+                'mime'              => $file->getClientMimeType(),
+                'meta'              => compact('width', 'height'),
+                'kind'              => $kind,
+                'path'              => $job->getFilename(),
+            ]);
+
+            $image->save();
+
+            $this->dispatch($job);
+
+            return $image;
+        }
+
+        return null;
+    }
+
+    /**
+     * Save file upload as attachment for given model on given relation
+     * @param  mixed                    $model
+     * @param  string                   $relation
+     * @param  \Illuminate\Http\Request $request
+     * @param  string                   $kind
+     * @param  boolean                  $public
+     * @return \App\TuChance\Models\Asset|null
+     */
+    public function attachFile($model, $relation, Request $request, $kind = null, $public = true)
+    {
+        $key  = "{$relation}_attachment";
+        $file = $request->file($key);
+
+        if ($request->hasFile($key) && $file->isValid()) {
+            $extension = $file->getClientOriginalExtension();
+            $filename  = uniqid() . ".{$extension}";
+            $folder    = implode('/', [
+                str_plural(snake_case(class_basename(get_class($model)))),
+                Carbon::now()->format('Y-m-d')
+            ]);
+
+            $file->storePubliclyAs($folder, $filename, $public ? 'public' : 'local');
+
+            $image = $model->$relation()->firstOrNew(compact('kind'));
+
+            $image->fill([
+                'original_filename' => $file->getClientOriginalName(),
+                'extension'         => $file->getClientOriginalExtension(),
+                'filesize'          => $file->getClientSize(),
+                'mime'              => $file->getClientMimeType(),
+                'meta'              => null,
+                'kind'              => $kind,
+                'path'              => "{$folder}/{$filename}",
+            ]);
+
+            $image->save();
+
+            return $image;
+        }
+
+        return null;
+    }
+}

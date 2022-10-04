@@ -1,0 +1,8 @@
+echo "Checking out into $1"
+git checkout $1
+echo "Merging develop"
+git merge develop
+echo "Pushing changes"
+git push origin $1
+echo "back to develop"
+git checkout develop

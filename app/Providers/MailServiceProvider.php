@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Mail\MailServiceProvider as ServiceProvider;
+use Vitalybaev\LaravelDkim\Mailer;
+
+class MailServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->setupMailer();
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        parent::registerSwiftMailer();
+
+        $this->app->singleton('mailer', function ($app) {
+            $config = $app->make('config')->get('mail');
+
+            // Once we have create the mailer instance, we will set a container
+            // instance on the mailer. This allows us to resolve mailer classes
+            // via containers for maximum testability on said classes instead
+            // of passing Closures.
+            $mailer = new Mailer(
+                $app['view'], $app['swift.mailer'], $app['events']
+            );
+
+            if ($app->bound('queue')) {
+                $mailer->setQueue($app['queue']);
+            }
+
+            // Next we will set all of the global addresses on this mailer,
+            // which allows for easy unification of all "from" addresses as
+            // well as easy debugging of sent messages since they get be sent
+            // into a single email address.
+            foreach (['from', 'reply_to', 'to'] as $type) {
+                $this->setGlobalAddress($mailer, $config, $type);
+            }
+
+            return $mailer;
+        });
+    }
+
+    /**
+     * Setup email ssl options
+     * @return void
+     */
+    protected function setupMailer()
+    {
+        $mailer    = app('mailer');
+        $swift     = $mailer->getSwiftMailer();
+        $transport = $swift->getTransport();
+        $transport->setStreamOptions(['ssl' => config('mail.ssloptions')]);
+    }
+}

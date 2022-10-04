@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\EnrollmentCreated;
+use App\Notifications\CandidateApplied;
+use App\Notifications\ThankYouForEnrolling;
+
+class SendCandidateEnrolledNotification
+{
+    /**
+     * Handle the event.
+     * @param  \App\Events\EnrollmentCreated  $event
+     * @return void
+     */
+    public function handle(EnrollmentCreated $event)
+    {
+        $enrollment = $event->getEnrollment()->load([
+            'candidate.user', 'opportunity.bidder.user',
+        ]);
+
+        $candidate_user = data_get($enrollment, 'candidate.user');
+        $bidder_user    = data_get($enrollment, 'opportunity.bidder.user');
+        $opportunity    = data_get($enrollment, 'opportunity');
+
+        if ($candidate_user && $opportunity) {
+            $candidate_user->notify(new ThankYouForEnrolling($enrollment));
+        }
+
+        if ($bidder_user && $opportunity) {
+            $bidder_user->notify(new CandidateApplied($enrollment));
+        }
+    }
+}

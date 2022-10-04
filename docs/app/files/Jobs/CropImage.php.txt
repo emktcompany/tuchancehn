@@ -1,0 +1,111 @@
+<?php
+
+namespace App\Jobs;
+
+use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Http\UploadedFile;
+use Intervention\Image\ImageManager;
+use Carbon\Carbon;
+
+class CropImage
+{
+    /**
+     * Dimensions to resize the file
+     * @var array
+     */
+    protected $dimensions;
+
+    /**
+     * Filename the cropped file will be ultimately stored with
+     * @var string
+     */
+    protected $filename;
+
+    /**
+     * Folder the cropped file will be ultimately stored to in the public
+     * storage path
+     * @var string
+     */
+    protected $folder;
+
+    /**
+     * New Job instance
+     * @param \Illuminate\Http\UploadedFile $file
+     * @param string                        $folder
+     * @return void
+     */
+    public function __construct(UploadedFile $file, $folder)
+    {
+        $extension = $file->getClientOriginalExtension();
+        $filename  = uniqid() . ".{$extension}";
+        $folder    = implode('/', array_filter([
+            // 'public',
+            $folder,
+            Carbon::now()->format('Y-m-d')
+        ]));
+
+        $file->storeAs($folder, $filename);
+
+        $this->filename = $filename;
+        $this->folder   = $folder;
+    }
+
+    /**
+     * Get the filename
+     * @return string
+     */
+    public function getFilename()
+    {
+        return "{$this->folder}/{$this->filename}";
+    }
+
+    /**
+     * Set the dimensions the fill will be cropped to
+     * @param  int $width
+     * @param  int $height
+     * @param  int $x
+     * @param  int $y
+     * @return \App\Jobs\CropImage
+     */
+    public function crop($width, $height, $x, $y)
+    {
+        $this->dimensions = compact('width', 'height', 'x', 'y');
+        return $this;
+    }
+
+    /**
+     * Handle
+     * @param  ImageManager $image
+     * @param  Filesystem   $filesystem
+     * @return void
+     */
+    public function handle(ImageManager $image, Filesystem $filesystem)
+    {
+        $img = $image->make(storage_path(implode('/', array_filter([
+            'app',
+            $this->folder,
+            $this->filename
+        ]))));
+
+        if (!empty($this->dimensions)) {
+            $img->crop(
+                (int) $this->dimensions['width'],
+                (int) $this->dimensions['height'],
+                (int) $this->dimensions['x'],
+                (int) $this->dimensions['y']
+            );
+        }
+
+        $path = implode('/', array_filter([
+            'public',
+            $this->folder
+        ]));
+
+        if (!$filesystem->exists($path)) {
+            $filesystem->makeDirectory($path, 0755, true, true);
+        }
+
+        $img->save(storage_path("app/{$path}/{$this->filename}"));
+    }
+}
+

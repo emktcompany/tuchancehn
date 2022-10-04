@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Notifications;
+
+use App\TuChance\Models\Opportunity;
+
+class NewOpportunityCreated extends BaseNotification
+{
+    /**
+     * The folder the messages for this notifications are stored
+     * @var string
+     */
+    protected $translations = 'opportunity/created';
+
+    /**
+     * Opportunity created
+     * @var \App\TuChance\Models\Opportunity
+     */
+    protected $opportunity;
+
+    /**
+     * Create a new event instance.
+     * @param  \App\TuChance\Models\Opportunity $opportunity
+     * @return void
+     */
+    public function __construct(Opportunity $opportunity)
+    {
+        $this->opportunity = $opportunity;
+    }
+
+    /**
+     * Append opportunity data to mail message
+     * @param  \Illuminate\Notifications\Messages\MailMessage $message
+     * @param  mixed                                          $notifiable
+     * @return void
+     */
+    public function toMailData($message, $notifiable)
+    {
+        $message->line("Nombre: {$this->opportunity->name}");
+        $message->line("Categoría: {$this->opportunity->category->name}");
+
+        if ($this->opportunity->bidder) {
+            $message->line("Oferente: {$this->opportunity->bidder->name}");
+        }
+    }
+}
+

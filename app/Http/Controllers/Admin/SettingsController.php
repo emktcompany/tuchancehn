@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Settings\UpdateRequest;
+use App\Http\Resources\SettingResource;
+use App\TuChance\Models\Setting;
+use Illuminate\Http\Request;
+
+class SettingsController extends Controller
+{
+    /**
+     * Setting model
+     * @var \App\TuChance\Models\Setting
+     */
+    protected $settings;
+
+    /**
+     * Create a new controller instance
+     * @param  \App\TuChance\Models\Setting $settings
+     * @return void
+     */
+    public function __construct(Setting $settings)
+    {
+        $this->settings = $settings;
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function index(Request $request)
+    {
+        $query = $this->settings->newQuery();
+
+        if ($request->has('term')) {
+            $query->search($request->get('term'), null, true, true);
+        } else {
+            $query->orderBy('name');
+        }
+
+        $settings = $query->paginate(10);
+
+        return SettingResource::collection($settings);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     * @param  \App\Http\Requests\Admin\Settings\UpdateRequest  $request
+     * @param  int                                             $id
+     * @return \App\Http\Resources\SettingResource
+     */
+    public function update(UpdateRequest $request, $id)
+    {
+        $setting = $this->settings->findOrFail($id);
+        $setting->fill($request->all());
+        $setting->save();
+
+        return new SettingResource($setting->fresh());
+    }
+}

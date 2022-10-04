@@ -1,0 +1,38 @@
+@responsive {
+  .text-shadow {
+    text-shadow: 0 0 4px rgba(0, 0, 0, .5);
+  }
+  .text-shadow-dense {
+    text-shadow: 0 0 8px rgba(0, 0, 0, .15), 0 0 4px rgba(0, 0, 0, .5);
+  }
+  .text-shadow-none {
+    text-shadow: none;
+  }
+}
+
+.bg-smoke-darkest {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.bg-smoke-darker {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.bg-smoke-dark {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.bg-smoke {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.bg-smoke-light {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.bg-smoke-lighter {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.bg-smoke-lightest {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.animated-fast  {
+  animation-duration: .25s;
+  -webkit-animation-duration: .25s;
+}

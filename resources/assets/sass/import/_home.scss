@@ -1,0 +1,44 @@
+.main-hero {
+  .VueCarousel-pagination {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @screen sm {
+      max-width: config('screens.sm');
+    }
+
+    @screen md {
+      max-width: config('screens.md');
+    }
+
+    @screen lg {
+      max-width: config('screens.lg');
+    }
+
+    @screen xl {
+      max-width: config('screens.xl');
+    }
+
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  .VueCarousel-dot-container {
+    display: block !important;
+    text-align: left;
+    width: 100%;
+    float: right;
+    @screen sm {
+      max-width: 80%;
+    }
+
+    @screen md {
+      max-width: 75%;
+    }
+  }
+}

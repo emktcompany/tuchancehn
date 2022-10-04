@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Carbon\Carbon;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\MissingValue;
+
+abstract class BaseResource extends JsonResource
+{
+    use IncludesRelatedResources;
+
+    /**
+     * Allowed related resources to be included
+     * @var array
+     */
+    protected $allowed_includes = [];
+
+    /**
+     * Parse attribute as date
+     * @param  string $attribute
+     * @return \Illuminate\Http\Resources\MissingValue|mixed
+     */
+    protected function asDate($attribute)
+    {
+        return $this->when($this->{$attribute}, function () use ($attribute) {
+            if ($this->{$attribute} instanceof Carbon) {
+                return $this->{$attribute}->toIso8601String();
+            }
+
+            return new MissingValue;
+        });
+    }
+
+    /**
+     * Create new anonymous resource collection.
+     *
+     * @param  mixed  $resource
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public static function collection($resource)
+    {
+        return new ResourceCollection($resource, get_called_class());
+    }
+
+    /**
+     * Include a resource when loaded
+     * @param string $relationship
+     * @param string $resource
+     * @param mixed  $default
+     * @return \Illuminate\Http\Resources\MissingValue|mixed
+     */
+    protected function include($relationship, $resource = null, $default = null)
+    {
+        if ($resource == null) {
+            $resource = implode("\\", [
+                __NAMESPACE__, studly_case("{$relationship}_resource"),
+            ]);
+        }
+
+        return new $resource($this->whenLoaded($relationship));
+    }
+
+    /**
+     * Get allowed related resources to be included
+     * @return array
+     */
+    public function allowedIncludes()
+    {
+        return $this->allowed_includes;
+    }
+}
+

@@ -1,0 +1,210 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Categories\CreateRequest;
+use App\Http\Requests\Admin\Categories\UpdateRequest;
+use App\Http\Resources\CategoryResource;
+use App\TuChance\Models\Category;
+use App\TuChance\Models\SubCategory;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+
+class CategoriesController extends Controller
+{
+    /**
+     * Category model
+     * @var \App\TuChance\Models\Category
+     */
+    protected $categories;
+
+    /**
+     * Category model
+     * @var \App\TuChance\Models\SubCategory
+     */
+    protected $subcategories;
+
+    /**
+     * Relations to load for a given resource
+     * @var array
+     */
+    protected $relations = [
+        'image', 'banner', 'opportunity', 'subcategories'
+    ];
+
+    /**
+     * Create a new controller instance
+     * @param  \App\TuChance\Models\Category    $categories
+     * @param  \App\TuChance\Models\SubCategory $subcategories
+     * @return void
+     */
+    public function __construct(
+        Category $categories,
+        SubCategory $subcategories
+    ) {
+        $this->categories    = $categories;
+        $this->subcategories = $subcategories;
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function index(Request $request)
+    {
+        $categories = $this->categories
+            ->with($this->relations)
+            ->latest()
+            ->paginate(12);
+
+        return CategoryResource::collection($categories);
+    }
+
+    /**
+     * Sortable resources
+     * @return \App\Http\Resources\ResourceCollection
+     */
+    public function sortable()
+    {
+        $categories = $this->categories
+            ->with($this->relations)
+            ->orderBy('weight')
+            ->where('is_active', 1)
+            ->get();
+        return CategoryResource::collection($categories);
+    }
+
+    /**
+     * Sort resources to a given order
+     * @param  \Illuminate\Http\Request      $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function sort(Request $request)
+    {
+        $ids  = array_filter((array) $request->get('sort', []), 'is_numeric');
+        $rows = $this->categories->whereIn('id', $ids)->get();
+
+        collect($ids)
+            ->each(function ($id, $j) use ($rows) {
+                if ($row = $rows->find($id)) {
+                    $row->weight     = $j;
+                    $row->timestamps = false;
+                    $row->save();
+                }
+            });
+
+        return new JsonResponse(['success' => true]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * @param  \App\Http\Requests\Admin\Categories\CreateRequest  $request
+     * @return \App\Http\Resources\CategoryResource
+     */
+    public function store(CreateRequest $request)
+    {
+        $category = $this->categories->newInstance();
+        $category->fill($request->all());
+        $category->save();
+
+        $this->attachFile($category, 'image', $request);
+        $this->cropImage($category, 'banner', $request, 'banner');
+        $this->cropImage($category, 'opportunity', $request, 'opportunity');
+        $this->saveSubCategories($category, $request);
+
+        return new CategoryResource($category->fresh($this->relations));
+    }
+
+    /**
+     * Display the specified resource.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int                       $id
+     * @return \App\Http\Resources\CategoryResource
+     */
+    public function show(Request $request, $id)
+    {
+        $category = $this->categories->with($this->relations)->findOrFail($id);
+        return new CategoryResource($category);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     * @param  \App\Http\Requests\Admin\Categories\UpdateRequest  $request
+     * @param  int                                             $id
+     * @return \App\Http\Resources\CategoryResource
+     */
+    public function update(UpdateRequest $request, $id)
+    {
+        $category = $this->categories->with($this->relations)->findOrFail($id);
+        $category->fill($request->all());
+        $category->save();
+
+        $this->attachFile($category, 'image', $request);
+        $this->cropImage($category, 'banner', $request, 'banner');
+        $this->cropImage($category, 'opportunity', $request, 'opportunity');
+        $this->saveSubCategories($category, $request);
+
+        return new CategoryResource($category->fresh($this->relations));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int                       $id
+     * @return \App\Http\Resources\CategoryResource
+     */
+    public function destroy(Request $request, $id)
+    {
+        $category = $this->categories->with($this->relations)->findOrFail($id);
+        $category->delete();
+        return new CategoryResource($category);
+    }
+
+    /**
+     * Toggle resource visibility
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
+     * @return \App\Http\Resources\CategoryResource
+     */
+    public function toggle(Request $request, $id)
+    {
+        $category             = $this->categories->findOrFail($id);
+        $category->is_active  = !$category->is_active;
+        $category->timestamps = false;
+
+        $category->save();
+
+        return new CategoryResource($category->fresh($this->relations));
+    }
+
+    public function saveSubCategories(Category $row, Request $request)
+    {
+        $children    = $row->subcategories()->get();
+        $data        = collect((array) $request->get('subcategories', []));
+        $removed_ids = $children->pluck('id')->diff($data->pluck('id'))->all();
+
+        if (count($removed_ids)) {
+            $this->subcategories
+                ->whereIn('id', $removed_ids)
+                ->delete();
+        }
+
+        foreach ($data as $i => $category) {
+            if ($id = array_get($category, 'id')) {
+                $subcategory = $row->subcategories()
+                    ->where('id', $id)
+                    ->firstOrNew([]);
+            } else {
+                $subcategory = $row->subcategories()
+                    ->where('id', 0)
+                    ->firstOrNew([]);
+            }
+            $subcategory->fill($category);
+            $subcategory->weight = $i;
+            $subcategory->save();
+        }
+    }
+}
+

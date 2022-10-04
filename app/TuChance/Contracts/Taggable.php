@@ -1,0 +1,12 @@
+<?php
+
+namespace App\TuChance\Contracts;
+
+interface Taggable
+{
+    /**
+     * Country related to the resource
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function tags();
+}

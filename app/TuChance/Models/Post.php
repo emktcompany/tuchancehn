@@ -1,0 +1,66 @@
+<?php
+
+namespace App\TuChance\Models;
+
+use App\TuChance\Contracts\Ownable as OwnableContract;
+use App\TuChance\Eloquent\Ownable;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Nicolaslopezj\Searchable\SearchableTrait;
+
+class Post extends Model implements OwnableContract
+{
+    use Ownable, SearchableTrait, Sluggable, SoftDeletes;
+
+    /**
+     * Attributes that are mass assignable
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'summary', 'content', 'is_active',
+    ];
+
+    /**
+     * Searchable rules.
+     * @var array
+     */
+    protected $searchable = [
+        'columns' => [
+            'name'    => 10,
+            'summary' => 5,
+            'content' => 5,
+        ],
+    ];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ],
+        ];
+    }
+
+    /**
+     * Image as asset
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function image()
+    {
+        return $this->morphOne(Asset::class, 'assetable');
+    }
+
+    /**
+     * User owning the bidder
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}

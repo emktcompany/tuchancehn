@@ -1,0 +1,78 @@
+<?php
+
+namespace App\TuChance\Repositories;
+
+use App\Http\Resources\PostResource;
+use App\TuChance\Contracts\Repositories\Posts as PostsContract;
+use App\TuChance\Models\Post;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+
+class Posts implements PostsContract
+{
+    /**
+     * Post model
+     * @var \App\TuChance\Models\Post
+     */
+    protected $posts;
+
+    /**
+     * Create a new AuthController instance.
+     * @param  \App\TuChance\Models\Post $posts
+     * @return void
+     */
+    public function __construct(Post $posts)
+    {
+        $this->posts = $posts;
+    }
+
+    /**
+     * Search posts
+     * @param  \Illuminate\Http\Request $query
+     * @param  boolean                  $active
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function search(Request $query = null, $active = true)
+    {
+        $query = $this->baseQuery($active);
+
+        if ($terms) {
+            if ($terms->has('term')) {
+                $query->search($terms->get('term'), null, true, true);
+            } else {
+                $query->latest();
+            }
+        }
+
+        return PostResource::collection($query->paginate(12));
+    }
+
+    /**
+     * Find given post
+     * @param  \Illuminate\Http\Request $id
+     * @param  boolean                  $active
+     * @return \App\Http\Resources\PostResource
+     */
+    public function find($id, $active = true)
+    {
+        $query = $this->baseQuery($active);
+        return new PostResource($query->findOrFail($id));
+    }
+
+    /**
+     * Create a base query builder object
+     * @param  boolean $active
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    protected function baseQuery($active)
+    {
+        $query = $this->posts->with('image', 'user.avatar');
+
+        if ($active) {
+            $query->where('is_active', '=', 1);
+        }
+
+        return $query;
+    }
+}
+

@@ -1,0 +1,122 @@
+[
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/capacitaciones.svg"
+    },
+    "id": 1,
+    "is_active": 1,
+    "name": "Capacitaciones",
+    "description": null,
+    "slug": "capacitaciones",
+    "color": "purple"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/becas.svg"
+    },
+    "id": 2,
+    "is_active": 1,
+    "name": "Becas",
+    "description": null,
+    "slug": "becas",
+    "color": "cyan"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/emprendimientos.svg"
+    },
+    "id": 3,
+    "is_active": 1,
+    "name": "Emprendimientos",
+    "description": null,
+    "slug": "emprendimientos",
+    "color": "teal"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/financiamientos.svg"
+    },
+    "id": 4,
+    "is_active": 1,
+    "name": "Financiamientos",
+    "description": null,
+    "slug": "financiamientos",
+    "color": "orange"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/empleo.svg"
+    },
+    "id": 5,
+    "is_active": 1,
+    "name": "Empleos",
+    "description": null,
+    "slug": "empleos",
+    "color": "red"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/emprendimiento-social.svg"
+    },
+    "id": 6,
+    "is_active": 1,
+    "name": "Emprendimiento Social",
+    "description": null,
+    "slug": "emprendimiento-social",
+    "color": "red"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/cursos-en-linea.svg"
+    },
+    "id": 7,
+    "is_active": 1,
+    "name": "Cursos en línea",
+    "description": null,
+    "slug": "cursos-en-linea",
+    "color": "orange"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/educacion.svg"
+    },
+    "id": 8,
+    "is_active": 1,
+    "name": "Educación",
+    "description": null,
+    "slug": "educacion",
+    "color": "teal"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/migracion.svg"
+    },
+    "id": 9,
+    "is_active": 1,
+    "name": "Migración Retornados",
+    "description": null,
+    "slug": "mingracion-retornados",
+    "color": "cyan"
+  },
+  {
+    "image": {
+      "file": true,
+      "path": "resources/assets/images/vida-saludable.svg"
+    },
+    "id": 10,
+    "is_active": 1,
+    "name": "Vida Saludable",
+    "description": null,
+    "slug": "vida-saludable",
+    "color": "purple"
+  }
+]

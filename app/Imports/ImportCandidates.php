@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Imports;
+
+use App\Exceptions\UserExistsException;
+use App\TuChance\Models\Candidate;
+use App\TuChance\Models\User;
+
+class ImportCandidates extends BaseImport
+{
+    /**
+     * @param  array  $row
+     * @param  int    $index
+     * @return void
+     */
+    protected function onRow($row, $index)
+    {
+        $user = (new User)->firstOrNew(['email' => $row['email']]);
+
+        if ($user->exists) {
+            throw new UserExistsException(
+                "Email: {$row['email']} already taken"
+            );
+        }
+
+        $country = $this->getCountry($row['pais']);
+        $state   = $this->getState($row['departamento'], $country);
+        $city    = $this->getCity($row['municipio'], $state);
+
+        $user->name     = $row['nombre'];
+        $user->email    = $row['email'];
+        $user->password = bcrypt($row['password']);
+        $this->setLocation($user, $country, $state, $city);
+        $user->save();
+        $user->syncRoles(['candidate']);
+
+        $candidate                 = new Candidate;
+        $candidate->summary        = $row['resumen'];
+        $candidate->driver_license = in_array($row['persmisoconducir'], [
+            'Sí', 'Si', 'si', 'Sí', 1,
+        ]);
+        $candidate->native_language         = $row['lenguamaterna'];
+        $candidate->others_language         = $row['otrosidiomas'];
+        $candidate->gender                  = $row['gender'] == 'M';
+        $candidate->phone                   = $row['phone'];
+        $candidate->cell_phone              = $row['mobile'];
+        $candidate->professional_objective  = $row['objetivoprofesional'];
+        $candidate->professional_area       = $row['campoprofesional'];
+        $candidate->professional_experience = $row['experienciaprofesional'];
+        $candidate->training_education      = $row['educacionformacion'];
+        $candidate->references              = $row['referencias'];
+        $candidate->work_experience         = $row['experiencia'];
+
+        $this->setLocation($candidate, $country, $state, $city);
+        $candidate->user()->associate($user);
+        $candidate->save();
+    }
+}

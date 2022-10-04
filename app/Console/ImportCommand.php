@@ -1,0 +1,210 @@
+<?php
+
+namespace App\Console;
+
+use App\Http\Controllers\UploadsAttachments;
+use App\TuChance\Models\Country;
+use Illuminate\Console\Command;
+use Illuminate\Database\Connection;
+use Illuminate\Database\DatabaseManager;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Fluent;
+
+abstract class ImportCommand extends Command
+{
+    use UploadsAttachments;
+
+    /**
+     * The database importer
+     * @var \Illuminate\Database\Connection
+     */
+    protected $import_connection;
+
+    /**
+     * The database importer
+     * @var \Illuminate\Database\Connection
+     */
+    protected $connection;
+
+    /**
+     * The database importer
+     * @var \Illuminate\Filesystem\Filesystem
+     */
+    protected $filesystem;
+
+    /**
+     * Create a new command instance.
+     * @return void
+     */
+    public function __construct(DatabaseManager $db, Filesystem $filesystem)
+    {
+        $this->import_connection = $db->connection('mysql_import');
+        $this->connection        = $db->connection('mysql');
+        $this->filesystem        = $filesystem;
+        parent::__construct();
+    }
+
+    /**
+     * Import all rows in a remote table to a local one
+     * @param  string|Closure $remote_table
+     * @param  string         $table
+     * @param  array|null     $map
+     * @return null
+     */
+    public function importTable($remote_table, string $table, array $map = [])
+    {
+        $chunk_size = 200;
+
+        if (is_callable($remote_table)) {
+            $query = $remote_table();
+        } else {
+            $query = $this->import_connection
+                ->table($remote_table)
+                ->orderBy("{$remote_table}.id");
+        }
+
+        $total = $query->count();
+        $bar   = $this->output->createProgressBar($total);
+
+        $query->chunk($chunk_size, function ($rows) use ($table, $map, $bar) {
+            $this->connection->beginTransaction();
+
+            $rows->each(function ($row) use ($table, $map, $bar) {
+                $this->importRow($table, new Fluent($row), $map);
+                $bar->advance();
+            });
+
+            $this->connection->commit();
+        });
+
+        $bar->finish();
+        echo "\n";
+    }
+
+    /**
+     * Import a single row
+     * @param  string                     $table
+     * @param  \Illuminate\Support\Fluent $row
+     * @param  array                      $map
+     * @return void
+     */
+    public function importRow(string $table, Fluent $row, array $map = [])
+    {
+        $keys        = array_keys($row->toArray());
+        $default_map = array_combine($keys, $keys);
+        $remote_id   = array_get($map, 'remote_key', 'remote_id');
+
+        if (isset($map['except'])) {
+            $default_map = array_except($default_map, $map['except']);
+        }
+
+        if (isset($map['only'])) {
+            $default_map = array_only($default_map, $map['only']);
+        }
+
+        $map = isset($map['map']) ? $map['map'] : array_except($map, [
+            'only', 'except', 'remote_key',
+        ]);
+
+        $map = array_merge($default_map, $map);
+
+        $model             = [];
+        $model[$remote_id] = $row->get('id');
+
+        $imported = $this->connection
+            ->table($table)
+            ->where($remote_id, $model[$remote_id])
+            ->first();
+
+        foreach ($map as $remote_key => $local_key) {
+            $value = $row->get($remote_key);
+
+            if (is_object($local_key) && ($local_key instanceof \Closure)) {
+                $value     = $local_key($row, $imported);
+                $local_key = $remote_key;
+            }
+
+            if (!array_key_exists($remote_key, $row->getAttributes())) {
+                $value     = $local_key;
+                $local_key = $remote_key;
+            }
+
+            if (!($value === false)) {
+                $model[$local_key] = $value;
+            }
+        }
+
+        if (!is_null($imported)) {
+            $this->connection
+                ->table($table)
+                ->where($remote_id, $model[$remote_id])
+                ->update($model);
+        } else {
+            $this->connection
+                ->table($table)
+                ->insert($model);
+        }
+    }
+
+    /**
+     * Import an asset
+     * @param mixed   $assetable
+     * @param string  $relation
+     * @param string  $url
+     * @param boolean $single
+     * @return \App\TuChance\Models\Asset
+     */
+    public function importAsset($assetable, $relation, $url, $single = true)
+    {
+        $filename = basename($url);
+
+        $asset = $assetable->$relation()->firstOrNew([]);
+
+        if ($asset->original_filename == $filename) {
+            return $asset;
+        }
+
+        $folder     = $assetable->getTable() . '/' . date('Y-m-d');
+        $path       = storage_path("app/public/{$folder}");
+        $save_value = "{$folder}/{$filename}";
+        $file_path  = storage_path("app/public/{$save_value}");
+
+        $this->filesystem
+            ->makeDirectory($path, 0755, true, true);
+
+        try {
+            if (!is_file($file_path)) {
+                $remote_url = starts_with($url, env('DB_IMPORT_ASSET_URL')) ?
+                $url :
+                env('DB_IMPORT_ASSET_URL') . "/{$url}";
+                copy($remote_url, $file_path);
+            }
+
+            list($width, $height) = getimagesize($file_path);
+        } catch (\ErrorException $e) {
+            $this->error($e->getMessage());
+            $this->error("Failed to upload: {$url}");
+            return null;
+        }
+
+        $asset->fill([
+            'original_filename' => $filename,
+            'extension'         => $this->filesystem->extension($file_path),
+            'filesize'          => $this->filesystem->size($file_path),
+            'mime'              => $this->filesystem->mimeType($file_path),
+            'meta'              => compact('width', 'height'),
+            'path'              => $save_value,
+        ]);
+
+        $asset->save();
+
+        return $asset;
+    }
+
+    public function countryId()
+    {
+        return Country::where('domain', request()->getHost())
+            ->firstOrFail()
+            ->id;
+    }
+}

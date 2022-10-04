@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Validation\Rules\Exists;
+
+trait ValidatesLocation
+{
+    protected function validateLocation(
+        array &$rules,
+        string $context = null,
+        $allow_change = true
+    ) {
+        $keys = ['country_id', 'state_id', 'city_id'];
+
+        if (is_null($context)) {
+            $data = $this->only($keys);
+            $prefix = '';
+        } else {
+            $data = array_only((array) $this->get($context, []), $keys);
+            $prefix = "{$context}.";
+        }
+
+        $rules["{$prefix}country_id"] = [
+            'numeric', new Exists('countries', 'id'),
+        ];
+
+        if ($allow_change) {
+            array_unshift($rules["{$prefix}country_id"], 'required');
+        } else {
+            $country_id = $this->user('api')->country_id;
+        }
+
+        $rules["{$prefix}state_id"] = [
+            'nullable', 'numeric',
+            with(new Exists('states', 'id'))
+                ->where('country_id', array_get($data, 'country_id')),
+        ];
+
+        $rules["{$prefix}city_id"] = [
+            'nullable', 'numeric',
+            with(new Exists('cities', 'id'))
+                ->where('state_id', array_get($data, 'state_id')),
+        ];
+
+        return $rules;
+    }
+}
+

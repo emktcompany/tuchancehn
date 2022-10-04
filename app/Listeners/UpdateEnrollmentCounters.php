@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\EnrollmentCreated;
+use App\TuChance\Models\Enrollment;
+
+class UpdateEnrollmentCounters
+{
+    /**
+     * Handle the event.
+     *
+     * @param  EnrollmentCreated  $event
+     * @return void
+     */
+    public function handle(EnrollmentCreated $event)
+    {
+        $enrollment  = $event->getEnrollment();
+        $opportunity = $enrollment->opportunity()->withTrashed()->first();
+        $bidder      = $opportunity->bidder;
+        $candidate   = $enrollment->candidate;
+        $country     = $bidder->country;
+
+        collect([$opportunity, $bidder, $candidate])
+            ->each(function ($model) {
+                if ($model) {
+                    $model->enrollment_count = $model->enrollments()->count();
+                    $model->timestamps       = false;
+                    $model->save();
+                }
+            });
+
+        $country->enrollment_count = (new Enrollment)
+            ->whereHas('opportunity', function ($query) use ($country) {
+                $query->withTrashed();
+
+                $query->whereHas('bidder', function ($query) use ($country) {
+                    $query->byCountry($country->code);
+                    $query->withTrashed();
+                });
+
+                $query->orWhereHas('country', function ($query) use ($country) {
+                    $query->where('code', $country->code);
+                });
+            })
+            ->count();
+
+        $country->timestamps = false;
+        $country->save();
+    }
+}

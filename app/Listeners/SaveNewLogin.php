@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\UserLoggedIn;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Carbon\Carbon;
+
+class SaveNewLogin
+{
+    /**
+     * Handle the event.
+     * @param  UserLoggedIn  $event
+     * @return void
+     */
+    public function handle(UserLoggedIn $event)
+    {
+        $user = $event->getUser();
+        $user->last_login_at = $user->logged_in_at;
+        $user->login_at      = Carbon::now();
+        $user->timestamps    = false;
+        $user->save();
+        $user->logins()->create();
+    }
+}

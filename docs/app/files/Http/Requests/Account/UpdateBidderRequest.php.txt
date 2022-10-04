@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Requests\Account;
+
+class UpdateBidderRequest extends UpdateUserRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return auth()->check() && $this->user()->hasRole('bidder');
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $rules = parent::rules();
+
+        return array_merge($rules, [
+            'bidder'             => ['required', 'array'],
+            'bidder.category_id' => ['numeric', 'exists:categories,id'],
+            'bidder.web'         => ['url', 'nullable'],
+            'bidder.name'        => ['required', 'string'],
+        ]);
+    }
+}
+

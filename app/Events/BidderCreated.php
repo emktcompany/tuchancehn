@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Events;
+
+use App\TuChance\Models\Bidder;
+use Illuminate\Queue\SerializesModels;
+
+class BidderCreated
+{
+    use SerializesModels;
+
+    /**
+     * Bidder created
+     * @var \App\TuChance\Models\Bidder
+     */
+    protected $bidder;
+
+    /**
+     * Create a new event instance.
+     * @param  \App\TuChance\Models\Bidder $bidder
+     * @return void
+     */
+    public function __construct(Bidder $bidder)
+    {
+        $this->bidder = $bidder;
+    }
+
+    /**
+     * Get the bidder
+     * @return \App\TuChance\Models\Bidder
+     */
+    public function getBidder()
+    {
+        return $this->bidder;
+    }
+}

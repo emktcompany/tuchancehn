@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Resources;
+
+class EmailTemplateResource extends BaseResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+            'id'         => $this->id,
+            'event'      => $this->event,
+            'days'       => $this->days,
+            'title'      => $this->title,
+            'content'    => $this->content,
+            'cta'        => $this->cta,
+            'cta_text'   => $this->cta_text,
+            'is_active'  => $this->is_active,
+            'created_at' => $this->asDate('created_at'),
+            'banner'     => new AssetResource($this->whenLoaded('banner')),
+            'footer'     => new AssetResource($this->whenLoaded('footer')),
+            'sponsor'    => new AssetResource($this->whenLoaded('sponsor')),
+        ];
+    }
+}

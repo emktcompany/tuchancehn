@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\MissingValue;
+
+class BidderResource extends BaseResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        $user     = $request->user('api');
+        $is_admin = $user && $user->hasAnyRole([
+            'admin',
+        ]);
+
+        return [
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'slug'        => $this->slug,
+            'phone'       => $this->phone,
+            'cell_phone'  => $this->cell_phone,
+            'web'         => $this->web,
+            'services'    => $this->services,
+            'summary'     => $this->summary,
+            'description' => $this->description,
+            'is_active'   => $this->is_active,
+            'is_featured' => $this->is_featured,
+            'interest_id' => $this->interest_id,
+            'category_id' => $this->category_id,
+            'country_id'  => $this->country_id,
+            'state_id'    => $this->state_id,
+            'city_id'     => $this->city_id,
+            'created_at'  => $this->asDate('created_at'),
+            // 'image'       => new AssetResource($this->whenLoaded('image')),
+            'email'       => $this->whenLoaded('user', function () {
+                return $this->user->email;
+            }),
+            'image'       => $this->whenLoaded('user', function () {
+                if ($this->user->relationLoaded('avatar')) {
+                    return new AssetResource($this->user->avatar);
+                }
+
+                return new MissingValue;
+            }),
+            'user'        => $this->when($is_admin, new UserResource($this->whenLoaded('user'))),
+            'categories'  => $this->whenLoaded('categories', function () {
+                return CategoryResource::collection($this->categories);
+            }),
+            'opportunities'  => $this->whenLoaded('opportunities', function () {
+                return OpportunityResource::collection($this->opportunities);
+            }),
+            'category'    => new CategoryResource($this->whenLoaded('category')),
+            'country'     => new CountryResource($this->whenLoaded('country')),
+            'city'        => new CityResource($this->whenLoaded('city')),
+            'state'       => new StateResource($this->whenLoaded('state')),
+        ];
+    }
+}
+
